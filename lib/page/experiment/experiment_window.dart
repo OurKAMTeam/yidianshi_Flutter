@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:yidianshi/controller/experiment_controller.dart';
+import 'package:yidianshi/widget/home/info_widget/controller/experiment_controller.dart';
 import 'package:yidianshi/page/experiment/experiment_info_card.dart';
 import 'package:yidianshi/page/public_widget/public_widget.dart';
 import 'package:yidianshi/page/public_widget/timeline_widget/timeline_title.dart';

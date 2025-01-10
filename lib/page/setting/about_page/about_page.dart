@@ -11,7 +11,7 @@ import 'package:yidianshi/page/public_widget/re_x_card.dart';
 import 'package:yidianshi/page/setting/about_page/easter_egg_page.dart';
 import 'package:yidianshi/page/setting/about_page/developer_widget.dart';
 import 'package:yidianshi/page/setting/about_page/link_widget.dart';
-import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/shared/utils/preference.dart' as preference;
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});

@@ -12,7 +12,7 @@ import 'package:yidianshi/page/public_widget/empty_list_view.dart';
 import 'package:yidianshi/page/score/score_info_card.dart';
 import 'package:yidianshi/page/score/score_state.dart';
 import 'package:yidianshi/page/score/score_statics.dart';
-import 'package:yidianshi/repository/preference.dart';
+import 'package:yidianshi/shared/utils/preference.dart';
 
 class ScorePage extends StatefulWidget {
   const ScorePage({super.key});

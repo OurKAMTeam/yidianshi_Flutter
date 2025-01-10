@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/model/xidian_ids/library.dart';
-import 'package:yidianshi/repository/logger.dart';
-import 'package:yidianshi/repository/xidian_ids/library_session.dart';
+import 'package:yidianshi/shared/utils/logger.dart';
+import 'package:yidianshi/xd_api/tool/library_session.dart';
 
 class BookInfoCard extends StatelessWidget {
   final BookInfo toUse;

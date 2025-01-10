@@ -11,8 +11,8 @@ import 'package:yidianshi/page/public_widget/toast.dart';
 import 'package:sn_progress_dialog/progress_dialog.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/model/xidian_ids/library.dart';
-import 'package:yidianshi/repository/logger.dart';
-import 'package:yidianshi/repository/xidian_ids/library_session.dart';
+import 'package:yidianshi/shared/utils/logger.dart';
+import 'package:yidianshi/xd_api/tool/library_session.dart';
 
 class BorrowInfoCard extends StatelessWidget {
   final BorrowData toUse;

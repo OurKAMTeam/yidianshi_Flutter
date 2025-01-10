@@ -6,7 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:yidianshi/page/public_widget/toast.dart';
-import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/shared/utils/preference.dart' as preference;
 
 class ElectricityAccountDialog extends StatelessWidget {
   final TextEditingController _controller =

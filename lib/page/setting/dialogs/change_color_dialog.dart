@@ -6,9 +6,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:get/get.dart';
-import 'package:yidianshi/controller/theme_controller.dart';
-import 'package:yidianshi/repository/preference.dart' as preference;
-import 'package:yidianshi/themes/color_seed.dart';
+import 'package:yidianshi/widget/home/info_widget/controller/theme_controller.dart';
+import 'package:yidianshi/shared/utils/preference.dart' as preference;
+import 'package:yidianshi/shared/common/themes/color_seed.dart';
 
 class ChangeColorDialog extends StatefulWidget {
   const ChangeColorDialog({super.key});

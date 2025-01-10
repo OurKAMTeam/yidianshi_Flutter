@@ -8,19 +8,19 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:yidianshi/page/setting/about_page/about_page.dart';
-import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/shared/utils/logger.dart';
 import 'package:yidianshi/page/public_widget/toast.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/page/public_widget/app_icon.dart';
-import 'package:yidianshi/page/login/jc_captcha.dart';
-import 'package:yidianshi/repository/xidian_ids/ehall_session.dart';
-import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/widget/login/jc_captcha.dart';
+import 'package:yidianshi/xd_api/base/ehall_session.dart';
+import 'package:yidianshi/shared/utils/preference.dart' as preference;
 import 'package:yidianshi/page/homepage/home.dart';
-import 'package:yidianshi/repository/xidian_ids/ids_session.dart';
-import 'package:yidianshi/page/login/bottom_buttons.dart';
-import 'package:yidianshi/repository/xidian_ids/personal_info_session.dart';
+import 'package:yidianshi/xd_api/base/ids_session.dart';
+import 'package:yidianshi/widget/login/bottom_buttons.dart';
+import 'package:yidianshi/xd_api/tool/personal_info_session.dart';
 
 class LoginWindow extends StatefulWidget {
   const LoginWindow({super.key});

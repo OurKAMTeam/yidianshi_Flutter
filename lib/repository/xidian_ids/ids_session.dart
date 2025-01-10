@@ -10,10 +10,10 @@ import 'package:dio/dio.dart';
 import 'package:html/parser.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:synchronized/synchronized.dart';
-import 'package:yidianshi/page/login/jc_captcha.dart';
-import 'package:yidianshi/repository/logger.dart';
-import 'package:yidianshi/repository/network_session.dart';
-import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/widget/login/jc_captcha.dart';
+import 'package:yidianshi/shared/utils/logger.dart';
+import 'package:yidianshi/xd_api/base/network_session.dart';
+import 'package:yidianshi/shared/utils/preference.dart' as preference;
 
 enum IDSLoginState {
   none,

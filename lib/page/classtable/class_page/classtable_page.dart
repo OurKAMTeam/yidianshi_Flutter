@@ -18,12 +18,12 @@ import 'package:yidianshi/page/classtable/classtable_state.dart';
 import 'package:yidianshi/page/classtable/class_page/not_arranged_class_list.dart';
 import 'package:yidianshi/page/classtable/class_page/week_choice_view.dart';
 import 'package:yidianshi/page/public_widget/toast.dart';
-import 'package:yidianshi/repository/logger.dart';
-import 'package:yidianshi/repository/network_session.dart';
-import 'package:yidianshi/repository/pick_file.dart';
-import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/shared/utils/logger.dart';
+import 'package:yidianshi/xd_api/base/network_session.dart';
+import 'package:yidianshi/shared/utils/pick_file.dart';
+import 'package:yidianshi/shared/utils/preference.dart' as preference;
 import 'package:share_plus/share_plus.dart';
-import 'package:yidianshi/repository/xidian_ids/classtable_session.dart';
+import 'package:yidianshi/xd_api/tool/classtable_session.dart';
 
 class ClassTablePage extends StatefulWidget {
   const ClassTablePage({super.key});

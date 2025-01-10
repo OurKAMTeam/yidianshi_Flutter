@@ -8,18 +8,18 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:yidianshi/controller/classtable_controller.dart';
-import 'package:yidianshi/controller/exam_controller.dart';
-import 'package:yidianshi/controller/experiment_controller.dart';
+import 'package:yidianshi/widget/home/info_widget/controller/classtable_controller.dart';
+import 'package:yidianshi/widget/home/info_widget/controller/exam_controller.dart';
+import 'package:yidianshi/widget/home/info_widget/controller/experiment_controller.dart';
 import 'package:yidianshi/model/xidian_ids/classtable.dart';
 import 'package:yidianshi/model/xidian_ids/exam.dart';
 import 'package:yidianshi/model/xidian_ids/experiment.dart';
 import 'package:yidianshi/page/classtable/class_table_view/class_organized_data.dart';
-import 'package:yidianshi/repository/logger.dart';
-import 'package:yidianshi/repository/network_session.dart';
-import 'package:yidianshi/repository/preference.dart' as preference;
-import 'package:yidianshi/repository/xidian_ids/classtable_session.dart';
-import 'package:yidianshi/themes/color_seed.dart';
+import 'package:yidianshi/shared/utils/logger.dart';
+import 'package:yidianshi/xd_api/base/network_session.dart';
+import 'package:yidianshi/shared/utils/preference.dart' as preference;
+import 'package:yidianshi/xd_api/tool/classtable_session.dart';
+import 'package:yidianshi/shared/common/themes/color_seed.dart';
 
 /// Use a inheritedWidget to share the ClassTableWidgetState
 class ClassTableState extends InheritedWidget {

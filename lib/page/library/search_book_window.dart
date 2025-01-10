@@ -9,7 +9,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/page/public_widget/empty_list_view.dart';
-import 'package:yidianshi/repository/xidian_ids/library_session.dart'
+import 'package:yidianshi/xd_api/tool/library_session.dart'
     as search_book;
 import 'package:yidianshi/model/xidian_ids/library.dart';
 import 'package:yidianshi/page/library/book_detail_card.dart';

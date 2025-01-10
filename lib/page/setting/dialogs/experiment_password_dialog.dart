@@ -6,7 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:yidianshi/page/public_widget/toast.dart';
-import 'package:yidianshi/repository/preference.dart' as user_perference;
+import 'package:yidianshi/shared/utils/preference.dart' as user_perference;
 
 class ExperimentPasswordDialog extends StatefulWidget {
   const ExperimentPasswordDialog({super.key});

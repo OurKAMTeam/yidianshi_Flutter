@@ -9,7 +9,7 @@ import 'package:yidianshi/page/classtable/arrangement_detail/course_detail_card.
 import 'package:yidianshi/page/classtable/arrangement_detail/arrangement_detail_state.dart';
 import 'package:yidianshi/page/classtable/arrangement_detail/exam_detail_card.dart';
 import 'package:yidianshi/page/classtable/arrangement_detail/experiment_detail_card.dart';
-import 'package:yidianshi/themes/color_seed.dart';
+import 'package:yidianshi/shared/common/themes/color_seed.dart';
 
 /// A list of the class info in that period, in case of conflict class.
 class ArrangementList extends StatelessWidget {

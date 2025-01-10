@@ -11,7 +11,7 @@ import 'package:yidianshi/model/xidian_sport/sport_class.dart';
 import 'package:yidianshi/page/public_widget/empty_list_view.dart';
 import 'package:yidianshi/page/public_widget/public_widget.dart';
 import 'package:yidianshi/page/public_widget/re_x_card.dart';
-import 'package:yidianshi/repository/xidian_sport_session.dart';
+import 'package:yidianshi/xd_api/tool/xidian_sport_session.dart';
 
 class SportClassWindow extends StatefulWidget {
   const SportClassWindow({super.key});

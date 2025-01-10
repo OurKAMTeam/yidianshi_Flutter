@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import 'package:flutter/material.dart';
-import 'package:yidianshi/repository/preference.dart';
+import 'package:yidianshi/shared/utils/preference.dart';
 
 extension BuildContextExt on BuildContext {
   Future<T?> push<T extends Object?>(Widget page) =>

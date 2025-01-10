@@ -11,7 +11,7 @@ import 'package:yidianshi/model/xdu_planet/xdu_planet.dart';
 import 'package:yidianshi/page/public_widget/context_extension.dart';
 import 'package:yidianshi/page/public_widget/public_widget.dart';
 import 'package:yidianshi/page/xdu_planet/content_page.dart';
-import 'package:yidianshi/repository/xdu_planet_session.dart';
+import 'package:yidianshi/xd_api/tool/xdu_planet_session.dart';
 
 class XDUPlanetPage extends StatefulWidget {
   const XDUPlanetPage({super.key});

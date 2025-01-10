@@ -8,8 +8,8 @@ import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/page/public_widget/re_x_card.dart';
 import 'package:yidianshi/page/score/score_compose_card.dart';
 import 'package:yidianshi/page/score/score_state.dart';
-import 'package:yidianshi/repository/preference.dart';
-import 'package:yidianshi/repository/xidian_ids/score_session.dart';
+import 'package:yidianshi/shared/utils/preference.dart';
+import 'package:yidianshi/xd_api/tool/score_session.dart';
 
 class ScoreInfoCard extends StatefulWidget {
   // Mark is a variable in ScoreInfo class
