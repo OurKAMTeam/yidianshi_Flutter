@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:get/get.dart';
-import 'package:chinese_font_library/chinese_font_library.dart';
+// import 'package:get/get.dart';
+// import 'package:chinese_font_library/chinese_font_library.dart';
 import 'package:yidianshi/widget/home/info_widget/controller/theme_controller.dart';
 
 class AppTheme {
