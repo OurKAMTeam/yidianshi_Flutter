@@ -11,7 +11,7 @@ import 'package:yidianshi/page/classtable/class_table_view/class_organized_data.
 import 'package:yidianshi/page/classtable/class_table_view/classtable_date_row.dart';
 import 'package:yidianshi/page/classtable/classtable_constant.dart';
 import 'package:yidianshi/page/classtable/classtable_state.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 
 /// THe classtable view, the way the the classtable sheet rendered.

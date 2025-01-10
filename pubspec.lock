@@ -182,6 +182,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.8"
+  catcher:
+    dependency: "direct main"
+    description:
+      name: catcher
+      sha256: f227c4793dce14077637b4b4b71e9a7f2d8d20af957c48e273f3af74b8fd0e5b
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0-dev1"
   catcher_2:
     dependency: "direct main"
     description:

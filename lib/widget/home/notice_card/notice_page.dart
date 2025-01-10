@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:yidianshi/xd_api/tool/message_session.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
 
 class NoticePage extends StatelessWidget {
   const NoticePage({super.key});

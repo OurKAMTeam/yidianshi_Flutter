@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:yidianshi/widget/home/main_page_card.dart';
-import 'package:yidianshi/page/public_widget/captcha_input_dialog.dart';
+import 'package:yidianshi/widget/public_widget_all/captcha_input_dialog.dart';
 import 'package:yidianshi/page/setting/dialogs/electricity_account_dialog.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as prefs;
 import 'package:yidianshi/xd_api/tool/payment_session.dart';

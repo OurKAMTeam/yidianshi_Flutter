@@ -17,7 +17,7 @@ import 'package:yidianshi/page/classtable/classtable_constant.dart';
 import 'package:yidianshi/page/classtable/classtable_state.dart';
 import 'package:yidianshi/page/classtable/class_page/not_arranged_class_list.dart';
 import 'package:yidianshi/page/classtable/class_page/week_choice_view.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:yidianshi/shared/utils/logger.dart';
 import 'package:yidianshi/xd_api/base/network_session.dart';
 import 'package:yidianshi/shared/utils/pick_file.dart';

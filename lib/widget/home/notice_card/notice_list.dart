@@ -7,9 +7,9 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:yidianshi/page/public_widget/both_side_sheet.dart';
+import 'package:yidianshi/widget/public_widget_all/both_side_sheet.dart';
 import 'package:yidianshi/xd_api/tool/message_session.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
 
 class NoticeList extends StatelessWidget {
   const NoticeList({super.key});

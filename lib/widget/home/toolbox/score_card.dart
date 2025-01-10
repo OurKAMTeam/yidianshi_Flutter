@@ -3,8 +3,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
-import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
 import 'package:yidianshi/page/score/score.dart';
 import 'package:yidianshi/xd_api/tool/score_session.dart';
 import 'package:yidianshi/xd_api/base/ids_session.dart';

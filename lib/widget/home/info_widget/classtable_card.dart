@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/widget/home/info_widget/controller/classtable_controller.dart';
@@ -13,7 +13,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:timelines_plus/timelines_plus.dart';
 import 'package:yidianshi/model/home_arrangement.dart';
 import 'package:yidianshi/widget/home/refresh.dart';
-import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 
 class _ClassTableCardItemDescriptor {

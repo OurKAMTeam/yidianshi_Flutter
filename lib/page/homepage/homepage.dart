@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:yidianshi/widget/home/home_card_padding.dart';
 import 'package:yidianshi/widget/home/toolbox/schoolnet_card.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:get/get.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -38,9 +38,6 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   void initState() {
-    Get.put(ClassTableController());
-    Get.put(ExamController());
-    Get.put(ExperimentController());
     super.initState();
   }
 

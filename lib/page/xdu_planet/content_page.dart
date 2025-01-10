@@ -7,7 +7,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/page/public_widget/both_side_sheet.dart';
+import 'package:yidianshi/widget/public_widget_all/both_side_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:fwfh_url_launcher/fwfh_url_launcher.dart';
@@ -17,8 +17,8 @@ import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:yidianshi/model/xdu_planet/xdu_planet.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:yidianshi/page/xdu_planet/comment_popout.dart';
 import 'package:yidianshi/xd_api/tool/xdu_planet_session.dart';
 

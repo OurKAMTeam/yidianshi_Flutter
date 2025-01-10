@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:talker_flutter/talker_flutter.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:yidianshi/shared/utils/logger.dart';
 import 'package:yidianshi/xd_api/base/network_session.dart';
 

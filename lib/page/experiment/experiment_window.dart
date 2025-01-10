@@ -7,9 +7,9 @@ import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/widget/home/info_widget/controller/experiment_controller.dart';
 import 'package:yidianshi/page/experiment/experiment_info_card.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
-import 'package:yidianshi/page/public_widget/timeline_widget/timeline_title.dart';
-import 'package:yidianshi/page/public_widget/timeline_widget/timeline_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/timeline_widget/timeline_title.dart';
+import 'package:yidianshi/widget/public_widget_all/timeline_widget/timeline_widget.dart';
 
 class ExperimentWindow extends StatefulWidget {
   const ExperimentWindow({super.key});

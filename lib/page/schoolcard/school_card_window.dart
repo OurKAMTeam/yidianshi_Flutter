@@ -8,11 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:yidianshi/page/public_widget/empty_list_view.dart';
+import 'package:yidianshi/widget/public_widget_all/empty_list_view.dart';
 import 'package:yidianshi/xd_api/tool/school_card_session.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:yidianshi/model/xidian_ids/paid_record.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
 
 class SchoolCardWindow extends StatefulWidget {
   const SchoolCardWindow({super.key});

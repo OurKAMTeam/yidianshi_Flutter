@@ -9,11 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/widget/home/info_widget/controller/exam_controller.dart';
 import 'package:yidianshi/page/exam/exam_info_card.dart';
-import 'package:yidianshi/page/public_widget/empty_list_view.dart';
-import 'package:yidianshi/page/public_widget/timeline_widget/timeline_title.dart';
+import 'package:yidianshi/widget/public_widget_all/empty_list_view.dart';
+import 'package:yidianshi/widget/public_widget_all/timeline_widget/timeline_title.dart';
 import 'package:yidianshi/page/exam/not_arranged_info.dart';
-import 'package:yidianshi/page/public_widget/timeline_widget/timeline_widget.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/timeline_widget/timeline_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:yidianshi/xd_api/base/ids_session.dart';
 
 class ExamInfoWindow extends StatefulWidget {

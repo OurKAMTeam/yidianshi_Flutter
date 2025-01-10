@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/model/xdu_planet/xdu_planet.dart';
-import 'package:yidianshi/page/public_widget/context_extension.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
 import 'package:yidianshi/page/xdu_planet/content_page.dart';
 import 'package:yidianshi/xd_api/tool/xdu_planet_session.dart';
 

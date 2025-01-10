@@ -6,7 +6,7 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/model/xidian_ids/empty_classroom.dart';
 import 'package:yidianshi/page/empty_classroom/empty_classroom_search_window.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
 import 'package:yidianshi/xd_api/tool/empty_classroom_session.dart';
 
 class EmptyClassroomWindow extends StatefulWidget {

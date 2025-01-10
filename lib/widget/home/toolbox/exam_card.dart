@@ -5,14 +5,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:get/get.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:yidianshi/widget/home/info_widget/controller/exam_controller.dart';
 import 'package:yidianshi/page/exam/exam_info_window.dart';
 import 'package:yidianshi/widget/home/refresh.dart';
 import 'package:yidianshi/widget/home/small_function_card.dart';
-import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
 import 'package:yidianshi/xd_api/base/ids_session.dart';
 
 class ExamCard extends StatelessWidget {

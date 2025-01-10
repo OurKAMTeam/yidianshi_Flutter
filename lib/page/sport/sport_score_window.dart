@@ -8,10 +8,10 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:get/get.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:yidianshi/model/xidian_sport/score.dart';
-import 'package:yidianshi/page/public_widget/re_x_card.dart';
+import 'package:yidianshi/widget/public_widget_all/re_x_card.dart';
 import 'package:yidianshi/xd_api/tool/xidian_sport_session.dart';
 
 class SportScoreWindow extends StatefulWidget {

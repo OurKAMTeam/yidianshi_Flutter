@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/page/public_widget/both_side_sheet.dart';
+import 'package:yidianshi/widget/public_widget_all/both_side_sheet.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:yidianshi/page/public_widget/empty_list_view.dart';
+import 'package:yidianshi/widget/public_widget_all/empty_list_view.dart';
 import 'package:yidianshi/xd_api/tool/library_session.dart'
     as search_book;
 import 'package:yidianshi/model/xidian_ids/library.dart';

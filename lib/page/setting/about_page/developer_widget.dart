@@ -5,7 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
 
 class Developer {
   final String name;

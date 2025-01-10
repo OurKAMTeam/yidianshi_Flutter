@@ -6,7 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 // import 'package:talker_flutter/talker_flutter.dart';
-import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
 import 'package:yidianshi/page/setting/dialogs/sport_password_dialog.dart';
 import 'package:yidianshi/page/sport/sport_window.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;

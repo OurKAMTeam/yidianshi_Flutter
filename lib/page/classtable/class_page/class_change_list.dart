@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/model/xidian_ids/classtable.dart';
-import 'package:yidianshi/page/public_widget/empty_list_view.dart';
+import 'package:yidianshi/widget/public_widget_all/empty_list_view.dart';
 
 /// A new page to show the class changed.
 /// Shows a list of [ClassDetail] which do not have the time arrangement.

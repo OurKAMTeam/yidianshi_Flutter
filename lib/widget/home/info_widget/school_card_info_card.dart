@@ -4,11 +4,11 @@
 import 'dart:math';
 
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:yidianshi/widget/home/main_page_card.dart';
-import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
 import 'package:yidianshi/page/schoolcard/school_card_window.dart';
 import 'package:yidianshi/xd_api/base/network_session.dart';
 import 'package:yidianshi/xd_api/tool/school_card_session.dart'

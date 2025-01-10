@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 import 'package:yidianshi/model/xdu_planet/xdu_planet.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:yidianshi/shared/utils/logger.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as pref;
 import 'package:yidianshi/xd_api/tool/xdu_planet_session.dart';

@@ -2,11 +2,11 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
-import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
 import 'package:yidianshi/xd_api/base/network_session.dart';
 import 'package:yidianshi/xd_api/tool/library_session.dart'
     as borrow_info;

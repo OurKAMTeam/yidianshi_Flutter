@@ -11,8 +11,8 @@ import 'package:yidianshi/page/classtable/class_add/class_add_window.dart';
 import 'package:yidianshi/page/classtable/class_table_view/class_organized_data.dart';
 import 'package:yidianshi/page/classtable/arrangement_detail/arrangement_detail.dart';
 import 'package:yidianshi/page/classtable/classtable_state.dart';
-import 'package:yidianshi/page/public_widget/both_side_sheet.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/both_side_sheet.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
 
 /// The card in [classSubRow], metioned in [ClassTableView].
 class ClassCard extends StatelessWidget {

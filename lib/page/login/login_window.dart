@@ -4,90 +4,116 @@
 // Login window of the program.
 
 import 'dart:math';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/page/setting/about_page/about_page.dart';
-import 'package:yidianshi/shared/utils/logger.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:get/get.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
-import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:yidianshi/page/public_widget/app_icon.dart';
-import 'package:yidianshi/widget/login/jc_captcha.dart';
-import 'package:yidianshi/xd_api/base/ehall_session.dart';
-import 'package:yidianshi/shared/utils/preference.dart' as preference;
-import 'package:yidianshi/page/homepage/home.dart';
-import 'package:yidianshi/xd_api/base/ids_session.dart';
-import 'package:yidianshi/widget/login/bottom_buttons.dart';
-import 'package:yidianshi/xd_api/tool/personal_info_session.dart';
+import 'package:yidianshi/widget/widget.dart';
+import './login_controller.dart';
 
-class LoginWindow extends StatefulWidget {
+class LoginWindow extends GetView<LoginController> {
   const LoginWindow({super.key});
 
-  @override
-  State<LoginWindow> createState() => _LoginWindowState();
-}
-
-class _LoginWindowState extends State<LoginWindow> {
-  /// The rest of Text Editing Controller
-  final TextEditingController _idsAccountController = TextEditingController();
-  final TextEditingController _idsPasswordController = TextEditingController();
-
-  /// Something related to the box.
-  final double widthOfSquare = 32.0;
-  final double roundRadius = 36;
-
   /// Variables of the input textfield
+  static const Color _inputFieldBackgroundColor = Color.fromRGBO(250, 250, 250, 1);
+  static const Color _inputFieldColor = Color.fromRGBO(35, 62, 99, 0.35);
+  static const double _inputFieldIconSize = 28;
+  static const double _inputFieldFontSize = 20;
+  static const double widthOfSquare = 32.0;
+  static const double roundRadius = 36;
+
   InputDecoration _inputDecoration({
     required IconData iconData,
     required String hintText,
     Widget? suffixIcon,
   }) =>
       InputDecoration(
-        prefixIcon: Icon(iconData),
+        border: InputBorder.none,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        prefixIcon: Icon(
+          iconData,
+          size: _inputFieldIconSize,
+          color: _inputFieldColor,
+        ),
+        hintStyle: TextStyle(
+          fontSize: _inputFieldFontSize,
+          color: _inputFieldColor,
+        ),
         hintText: hintText,
         suffixIcon: suffixIcon,
+        fillColor: _inputFieldBackgroundColor,
       );
 
-  /// Can I see the password?
-  bool _couldNotView = true;
-
-  Widget contentColumn() => Column(
+  Widget _contentColumn(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextField(
-            controller: _idsAccountController,
+            controller: controller.idsAccountController,
             decoration: _inputDecoration(
               iconData: MingCuteIcons.mgc_user_3_fill,
               hintText: FlutterI18n.translate(context, "login.identity_number"),
             ),
-          ).center(),
+            style: TextStyle(
+              fontSize: _inputFieldFontSize,
+              color: _inputFieldColor,
+            ),
+          ).center().padding(horizontal: 12).decorated(
+            color: _inputFieldBackgroundColor,
+            borderRadius: BorderRadius.circular(roundRadius),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withAlpha(19),
+                offset: const Offset(0, 2),
+                blurRadius: 1,
+              ),
+            ],
+          ).height(64),
           const SizedBox(height: 16.0),
-          TextField(
-            controller: _idsPasswordController,
-            obscureText: _couldNotView,
+          Obx(() => TextField(
+            controller: controller.idsPasswordController,
+            obscureText: !controller.isPasswordVisible.value,
+            style: TextStyle(
+              fontSize: _inputFieldFontSize,
+              color: _inputFieldColor,
+            ),
             decoration: _inputDecoration(
               iconData: MingCuteIcons.mgc_safe_lock_fill,
               hintText: FlutterI18n.translate(context, "login.password"),
               suffixIcon: IconButton(
                 icon: Icon(
-                  _couldNotView ? Icons.visibility : Icons.visibility_off,
+                  controller.isPasswordVisible.value
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  size: _inputFieldIconSize,
+                  color: _inputFieldColor,
                 ),
-                onPressed: () {
-                  setState(() {
-                    _couldNotView = !_couldNotView;
-                  });
-                },
+                onPressed: controller.togglePasswordVisibility,
               ),
             ),
-          ).center(),
-          SizedBox(height: width / height > 1.0 ? 16.0 : 64.0),
-          FilledButton(
+          ).center().padding(horizontal: 12).decorated(
+            color: _inputFieldBackgroundColor,
+            borderRadius: BorderRadius.circular(roundRadius),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withAlpha(19),
+                offset: const Offset(0, 2),
+                blurRadius: 1,
+              ),
+            ],
+          ).height(64)),
+          SizedBox(height: Get.width / Get.height > 1.0 ? 16.0 : 64.0),
+          Obx(() => FilledButton(
             style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              padding: const EdgeInsets.all(12.0),
               minimumSize: const Size(double.infinity, 56),
               maximumSize: const Size(double.infinity, 64),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(roundRadius),
+              ),
             ),
+            onPressed: controller.isLoading.value ? null : controller.login,
             child: Text(
               FlutterI18n.translate(context, "login.login"),
               style: const TextStyle(
@@ -95,219 +121,38 @@ class _LoginWindowState extends State<LoginWindow> {
                 fontSize: 20.0,
               ),
             ),
-            onPressed: () async {
-              if (_idsPasswordController.text.isNotEmpty) {
-                await login();
-              } else {
-                showToast(
-                  context: context,
-                  msg: FlutterI18n.translate(
-                    context,
-                    "login.incorrect_password_pattern",
-                  ),
-                );
-              }
-            },
-          ),
+          )),
           const SizedBox(height: 8.0),
           const ButtomButtons(),
         ],
       ).constrained(maxWidth: 400);
-
-  Future<void> login() async {
-    bool isGood = true;
-    ProgressDialog pd = ProgressDialog(context: context);
-    pd.show(
-      msg: FlutterI18n.translate(
-        context,
-        "login.on_login_progress",
-      ),
-      max: 100,
-      hideValue: true,
-      completed: Completed(
-        completedMsg: FlutterI18n.translate(
-          context,
-          "login.complete_login",
-        ),
-      ),
-    );
-    EhallSession ses = EhallSession();
-
-    try {
-      await ses.clearCookieJar();
-      log.warning(
-        "[login_window][login] "
-        "Have cleared login state.",
-      );
-    } on Exception {
-      log.warning(
-        "[login_window][login] "
-        "No clear state.",
-      );
-    }
-
-    try {
-      await ses.loginEhall(
-        username: _idsAccountController.text,
-        password: _idsPasswordController.text,
-        onResponse: (int number, String status) => pd.update(
-          msg: FlutterI18n.translate(context, status),
-          value: number,
-        ),
-        sliderCaptcha: (String cookieStr) {
-          return SliderCaptchaClientProvider(cookie: cookieStr).solve(context);
-        },
-      );
-      if (!mounted) return;
-      if (isGood == true) {
-        preference.setString(
-          preference.Preference.idsAccount,
-          _idsAccountController.text,
-        );
-        preference.setString(
-          preference.Preference.idsPassword,
-          _idsPasswordController.text,
-        );
-
-        bool isPostGraduate = await ses.checkWhetherPostgraduate();
-        if (isPostGraduate) {
-          await PersonalInfoSession().getInformationFromYjspt();
-        } else {
-          await PersonalInfoSession().getInformationEhall();
-        }
-
-        if (mounted) {
-          if (pd.isOpen()) pd.close();
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const HomePage()),
-          );
-        }
-      }
-    } catch (e, s) {
-      isGood = false;
-      pd.close();
-      if (mounted) {
-        if (e is PasswordWrongException) {
-          showToast(context: context, msg: e.msg);
-        } else if (e is LoginFailedException) {
-          showToast(context: context, msg: e.msg);
-        } else if (e is DioException) {
-          if (e.message == null) {
-            if (e.response == null) {
-              showToast(
-                context: context,
-                msg: FlutterI18n.translate(
-                  context,
-                  "login.failed_login_cannot_connect_to_server",
-                ),
-              );
-            } else {
-              showToast(
-                context: context,
-                msg: FlutterI18n.translate(
-                  context,
-                  "login.failed_login_with_code",
-                  translationParams: {
-                    "code": e.response!.statusCode.toString()
-                  },
-                ),
-              );
-            }
-          } else {
-            showToast(
-              context: context,
-              msg: FlutterI18n.translate(
-                context,
-                "login.failed_login_with_message",
-                translationParams: {
-                  "message": e.message.toString(),
-                },
-              ),
-            );
-          }
-        } else {
-          log.warning(
-            "[login_window][login] "
-            "Login failed with error: \n$e\nStacktrace is:\n$s",
-          );
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                e.toString().substring(
-                      0,
-                      min(
-                        e.toString().length,
-                        120,
-                      ),
-                    ),
-              ),
-            ),
-          );
-          showToast(
-            context: context,
-            msg: FlutterI18n.translate(
-              context,
-              "login.failed_login_other",
-            ),
-          );
-        }
-      }
-    }
-  }
-
-  double get width => MediaQuery.sizeOf(context).width;
-  double get height => MediaQuery.sizeOf(context).height;
-
-  @override
-  void initState() {
-    super.initState();
-
-    var cachedAccount = preference.getString(preference.Preference.idsAccount);
-    if (cachedAccount.isNotEmpty) {
-      _idsAccountController.text = cachedAccount;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(
-          left: width / height > 1.0 ? width * 0.2 : widthOfSquare,
-          right: width / height > 1.0 ? width * 0.2 : widthOfSquare,
+          left: Get.width / Get.height > 1.0 ? Get.width * 0.2 : widthOfSquare,
+          right: Get.width / Get.height > 1.0 ? Get.width * 0.2 : widthOfSquare,
           top: kToolbarHeight,
         ),
-        child: width / height > 1.0
+        child: Get.width / Get.height > 1.0
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const AppIconWidget().gestures(
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (context) => const AboutPage()),
-                    ),
+                  const AppIconWidget(size: 64).gestures(
+                    onTap: () => Get.toNamed('/about'),
                   ),
-                  const SizedBox(
-                    width: 48,
-                  ),
-                  Expanded(
-                    child: contentColumn(),
-                  ),
+                  const SizedBox(width: 48),
+                  Expanded(child: _contentColumn(context)),
                 ],
               )
             : Column(
                 children: [
-                  const AppIconWidget()
-                      .padding(
-                        vertical: kToolbarHeight * 0.75,
-                      )
-                      .gestures(
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => const AboutPage()),
-                        ),
-                      ),
-                  contentColumn(),
+                  const AppIconWidget(size: 64)
+                      .padding(vertical: kToolbarHeight * 0.75)
+                      .gestures(onTap: () => Get.toNamed('/about')),
+                  _contentColumn(context),
                 ],
               ).center(),
       ),

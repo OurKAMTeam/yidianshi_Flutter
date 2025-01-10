@@ -6,8 +6,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:yidianshi/model/xidian_ids/score.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
-import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:yidianshi/page/score/score_page.dart';
 import 'package:yidianshi/page/score/score_state.dart';
 import 'package:yidianshi/xd_api/tool/score_session.dart';

@@ -4,8 +4,8 @@
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/model/xidian_ids/exam.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
-import 'package:yidianshi/page/public_widget/re_x_card.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/re_x_card.dart';
 
 class ExamInfoCard extends StatelessWidget {
   final Subject? toUse;

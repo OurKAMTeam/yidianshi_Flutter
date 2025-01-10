@@ -4,8 +4,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:yidianshi/model/xidian_ids/exam.dart';
-import 'package:yidianshi/page/public_widget/empty_list_view.dart';
-import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/widget/public_widget_all/empty_list_view.dart';
+import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
 
 class NoArrangedInfo extends StatelessWidget {
   final List<ToBeArranged> list;
