@@ -10,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:html/parser.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:synchronized/synchronized.dart';
-import 'package:jiffy/jiffy.dart';
 import 'package:yidianshi/widget/login/jc_captcha.dart';
 import 'package:yidianshi/shared/utils/logger.dart';
 import 'package:yidianshi/xd_api/base/network_session.dart';

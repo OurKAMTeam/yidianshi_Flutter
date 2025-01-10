@@ -23,7 +23,7 @@ Catcher2Options catcherOptions = Catcher2Options(
   PageReportMode(showStackTrace: true),
   [
     EmailManualHandler(
-      ["superbart_chen@qq.com"],
+      ["2661275860@qq.com"],
       emailTitle: "PDA 发生故障",
       emailHeader: "请作者尽快修复",
     ),
