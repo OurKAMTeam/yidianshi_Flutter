@@ -7,11 +7,11 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:html/parser.dart';
 import 'package:dio/dio.dart';
-import 'package:watermeter/repository/logger.dart';
+import 'package:yidianshi/repository/logger.dart';
 import 'package:get/get.dart';
-import 'package:watermeter/model/xidian_ids/paid_record.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/repository/xidian_ids/ids_session.dart';
+import 'package:yidianshi/model/xidian_ids/paid_record.dart';
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/repository/xidian_ids/ids_session.dart';
 
 Rx<SessionState> isInit = SessionState.none.obs;
 RxString money = "".obs;

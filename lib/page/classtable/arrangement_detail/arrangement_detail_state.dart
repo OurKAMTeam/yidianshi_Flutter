@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MPL-2.0 OR  Apache-2.0
 
 import 'package:flutter/material.dart';
-import 'package:watermeter/model/xidian_ids/classtable.dart';
+import 'package:yidianshi/model/xidian_ids/classtable.dart';
 
 /// This is the shared data in the [ClassDetail].
 class ArrangementDetailState extends InheritedWidget {

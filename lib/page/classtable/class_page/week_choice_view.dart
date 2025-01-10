@@ -4,9 +4,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/classtable/class_table_view/class_organized_data.dart';
-import 'package:watermeter/page/classtable/classtable_constant.dart';
-import 'package:watermeter/page/classtable/classtable_state.dart';
+import 'package:yidianshi/page/classtable/class_table_view/class_organized_data.dart';
+import 'package:yidianshi/page/classtable/classtable_constant.dart';
+import 'package:yidianshi/page/classtable/classtable_state.dart';
 
 /// This is the button of the toprow
 class WeekChoiceView extends StatefulWidget {

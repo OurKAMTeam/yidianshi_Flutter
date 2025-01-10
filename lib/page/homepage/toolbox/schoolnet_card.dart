@@ -6,12 +6,12 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:sn_progress_dialog/progress_dialog.dart';
-import 'package:watermeter/page/homepage/small_function_card.dart';
-import 'package:watermeter/page/public_widget/context_extension.dart';
-import 'package:watermeter/page/setting/dialogs/schoolnet_password_dialog.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
-import 'package:watermeter/page/public_widget/captcha_input_dialog.dart';
-import 'package:watermeter/repository/schoolnet_session.dart';
+import 'package:yidianshi/page/homepage/small_function_card.dart';
+import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/page/setting/dialogs/schoolnet_password_dialog.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/page/public_widget/captcha_input_dialog.dart';
+import 'package:yidianshi/repository/schoolnet_session.dart';
 
 class SchoolnetCard extends StatelessWidget {
   const SchoolnetCard({super.key});

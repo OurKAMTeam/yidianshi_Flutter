@@ -5,10 +5,10 @@
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:watermeter/controller/theme_controller.dart';
+import 'package:yidianshi/controller/theme_controller.dart';
 
-import 'package:watermeter/repository/localization.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
+import 'package:yidianshi/repository/localization.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
 
 class ChangeLanguageDialog extends StatefulWidget {
   const ChangeLanguageDialog({super.key});

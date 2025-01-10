@@ -15,17 +15,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:watermeter/repository/logger.dart';
+import 'package:yidianshi/repository/logger.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:watermeter/controller/theme_controller.dart';
-import 'package:watermeter/repository/network_session.dart' as repo_general;
-import 'package:watermeter/repository/preference.dart' as preference;
-import 'package:watermeter/page/homepage/home.dart';
-import 'package:watermeter/page/login/login_window.dart';
+import 'package:yidianshi/controller/theme_controller.dart';
+import 'package:yidianshi/repository/network_session.dart' as repo_general;
+import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/page/homepage/home.dart';
+import 'package:yidianshi/page/login/login_window.dart';
 import 'package:get/get.dart';
-import 'package:watermeter/repository/xidian_ids/ids_session.dart';
+import 'package:yidianshi/repository/xidian_ids/ids_session.dart';
 import 'package:home_widget/home_widget.dart';
 
 void main() async {

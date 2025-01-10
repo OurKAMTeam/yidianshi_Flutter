@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/page/homepage/home_card_padding.dart';
+import 'package:yidianshi/page/homepage/home_card_padding.dart';
 
 class SmallFunctionCard extends StatelessWidget {
   final IconData icon;

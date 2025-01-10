@@ -4,9 +4,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:talker_flutter/talker_flutter.dart';
-import 'package:watermeter/page/public_widget/toast.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/network_session.dart';
+import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/network_session.dart';
 
 class ButtomButtons extends StatelessWidget {
   /// Variables of the three buttons in the bottom

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/model/xidian_ids/library.dart';
+import 'package:yidianshi/model/xidian_ids/library.dart';
 
 class BookPlaceCard extends StatelessWidget {
   final BookLocation toUse;

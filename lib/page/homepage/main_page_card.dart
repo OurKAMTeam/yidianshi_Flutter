@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import 'package:flutter/material.dart';
-import 'package:watermeter/page/homepage/home_card_padding.dart';
+import 'package:yidianshi/page/homepage/home_card_padding.dart';
 
 class MainPageCard extends StatelessWidget {
   final bool isLoad;

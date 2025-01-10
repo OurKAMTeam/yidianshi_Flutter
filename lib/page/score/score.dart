@@ -5,12 +5,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/model/xidian_ids/score.dart';
-import 'package:watermeter/page/public_widget/public_widget.dart';
-import 'package:watermeter/page/public_widget/toast.dart';
-import 'package:watermeter/page/score/score_page.dart';
-import 'package:watermeter/page/score/score_state.dart';
-import 'package:watermeter/repository/xidian_ids/score_session.dart';
+import 'package:yidianshi/model/xidian_ids/score.dart';
+import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/page/score/score_page.dart';
+import 'package:yidianshi/page/score/score_state.dart';
+import 'package:yidianshi/repository/xidian_ids/score_session.dart';
 
 class ScoreWindow extends StatefulWidget {
   const ScoreWindow({super.key});

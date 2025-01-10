@@ -6,13 +6,13 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:watermeter/page/public_widget/column_choose_dialog.dart';
-import 'package:watermeter/page/public_widget/context_extension.dart';
-import 'package:watermeter/page/public_widget/empty_list_view.dart';
-import 'package:watermeter/page/score/score_info_card.dart';
-import 'package:watermeter/page/score/score_state.dart';
-import 'package:watermeter/page/score/score_statics.dart';
-import 'package:watermeter/repository/preference.dart';
+import 'package:yidianshi/page/public_widget/column_choose_dialog.dart';
+import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/page/public_widget/empty_list_view.dart';
+import 'package:yidianshi/page/score/score_info_card.dart';
+import 'package:yidianshi/page/score/score_state.dart';
+import 'package:yidianshi/page/score/score_statics.dart';
+import 'package:yidianshi/repository/preference.dart';
 
 class ScorePage extends StatefulWidget {
   const ScorePage({super.key});

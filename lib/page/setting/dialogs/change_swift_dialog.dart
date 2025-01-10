@@ -6,7 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
+import 'package:yidianshi/repository/preference.dart' as preference;
 
 class ChangeSwiftDialog extends StatelessWidget {
   final TextEditingController _getNumberController =

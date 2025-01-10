@@ -5,15 +5,15 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:watermeter/bridge/save_to_groupid.g.dart';
-import 'package:watermeter/model/home_arrangement.dart';
-import 'package:watermeter/model/xidian_ids/experiment.dart';
-import 'package:watermeter/repository/experiment_session.dart';
-import 'package:watermeter/repository/logger.dart';
+import 'package:yidianshi/bridge/save_to_groupid.g.dart';
+import 'package:yidianshi/model/home_arrangement.dart';
+import 'package:yidianshi/model/xidian_ids/experiment.dart';
+import 'package:yidianshi/repository/experiment_session.dart';
+import 'package:yidianshi/repository/logger.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
 
 enum ExperimentStatus {
   cache,

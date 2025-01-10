@@ -4,8 +4,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/model/xidian_ids/score.dart';
-import 'package:watermeter/page/score/score_statics.dart';
+import 'package:yidianshi/model/xidian_ids/score.dart';
+import 'package:yidianshi/page/score/score_statics.dart';
 
 class ScoreState extends InheritedWidget {
   /// Static data.

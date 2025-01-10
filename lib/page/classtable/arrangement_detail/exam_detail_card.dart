@@ -3,8 +3,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/model/xidian_ids/exam.dart';
-import 'package:watermeter/page/classtable/arrangement_detail/custom_list_tile.dart';
+import 'package:yidianshi/model/xidian_ids/exam.dart';
+import 'package:yidianshi/page/classtable/arrangement_detail/custom_list_tile.dart';
 
 /// A dialog/card shows the exam detail.
 class ExamDetailCard extends StatelessWidget {

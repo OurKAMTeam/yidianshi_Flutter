@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/public_widget/toast.dart';
+import 'package:yidianshi/page/public_widget/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
-import 'package:watermeter/page/public_widget/context_extension.dart';
-import 'package:watermeter/repository/xidian_ids/ids_session.dart';
-import 'package:watermeter/page/empty_classroom/empty_classroom_window.dart';
-import 'package:watermeter/page/homepage/small_function_card.dart';
+import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/repository/xidian_ids/ids_session.dart';
+import 'package:yidianshi/page/empty_classroom/empty_classroom_window.dart';
+import 'package:yidianshi/page/homepage/small_function_card.dart';
 
 class EmptyClassroomCard extends StatelessWidget {
   const EmptyClassroomCard({super.key});

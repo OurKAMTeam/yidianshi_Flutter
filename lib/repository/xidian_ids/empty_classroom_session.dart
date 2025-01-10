@@ -3,8 +3,8 @@
 
 import 'dart:convert';
 import 'dart:developer' as developer;
-import 'package:watermeter/model/xidian_ids/empty_classroom.dart';
-import 'package:watermeter/repository/xidian_ids/ehall_session.dart';
+import 'package:yidianshi/model/xidian_ids/empty_classroom.dart';
+import 'package:yidianshi/repository/xidian_ids/ehall_session.dart';
 
 /// 空闲教室查询 4768402106681759
 class EmptyClassroomSession extends EhallSession {

@@ -3,9 +3,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
-import 'package:watermeter/page/homepage/small_function_card.dart';
-import 'package:watermeter/page/public_widget/context_extension.dart';
-import 'package:watermeter/page/toolbox/toolbox_page.dart';
+import 'package:yidianshi/page/homepage/small_function_card.dart';
+import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/page/toolbox/toolbox_page.dart';
 
 class ToolboxCard extends StatelessWidget {
   const ToolboxCard({super.key});

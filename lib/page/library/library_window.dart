@@ -4,8 +4,8 @@
 // Library Window.
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/library/borrow_list_window.dart';
-import 'package:watermeter/page/library/search_book_window.dart';
+import 'package:yidianshi/page/library/borrow_list_window.dart';
+import 'package:yidianshi/page/library/search_book_window.dart';
 
 class LibraryWindow extends StatelessWidget {
   const LibraryWindow({super.key});

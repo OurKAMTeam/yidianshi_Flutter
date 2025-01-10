@@ -4,8 +4,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/page/classtable/classtable_constant.dart';
-import 'package:watermeter/page/classtable/classtable_state.dart';
+import 'package:yidianshi/page/classtable/classtable_constant.dart';
+import 'package:yidianshi/page/classtable/classtable_state.dart';
 
 /// The index row of the class table, shows the index of the day and the week.
 class ClassTableDateRow extends StatelessWidget {

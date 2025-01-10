@@ -3,16 +3,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/homepage/notice_card/notice_page.dart';
-import 'package:watermeter/page/public_widget/context_extension.dart';
-import 'package:watermeter/page/public_widget/toast.dart';
+import 'package:yidianshi/page/homepage/notice_card/notice_page.dart';
+import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/page/public_widget/toast.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/page/homepage/home_card_padding.dart';
-import 'package:watermeter/repository/message_session.dart';
-import 'package:watermeter/page/homepage/notice_card/marquee_widget.dart';
-import 'package:watermeter/page/homepage/notice_card/notice_list.dart';
-import 'package:watermeter/page/public_widget/public_widget.dart';
+import 'package:yidianshi/page/homepage/home_card_padding.dart';
+import 'package:yidianshi/repository/message_session.dart';
+import 'package:yidianshi/page/homepage/notice_card/marquee_widget.dart';
+import 'package:yidianshi/page/homepage/notice_card/notice_list.dart';
+import 'package:yidianshi/page/public_widget/public_widget.dart';
 
 class NoticeCard extends StatelessWidget {
   const NoticeCard({super.key});

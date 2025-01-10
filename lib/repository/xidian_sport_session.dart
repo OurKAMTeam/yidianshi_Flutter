@@ -10,12 +10,12 @@ import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:encrypt/encrypt.dart';
 import 'package:synchronized/synchronized.dart';
-import 'package:watermeter/model/xidian_sport/sport_class.dart';
-import 'package:watermeter/repository/logger.dart';
+import 'package:yidianshi/model/xidian_sport/sport_class.dart';
+import 'package:yidianshi/repository/logger.dart';
 import 'package:get/get.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
-import 'package:watermeter/model/xidian_sport/score.dart';
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/model/xidian_sport/score.dart';
 
 var sportClass = SportClass().obs;
 var sportScore = SportScore().obs;

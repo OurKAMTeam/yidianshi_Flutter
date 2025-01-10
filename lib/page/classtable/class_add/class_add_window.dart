@@ -3,11 +3,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/public_widget/toast.dart';
+import 'package:yidianshi/page/public_widget/toast.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/model/xidian_ids/classtable.dart';
-import 'package:watermeter/page/classtable/class_add/wheel_choser.dart';
-import 'package:watermeter/page/classtable/classtable_constant.dart';
+import 'package:yidianshi/model/xidian_ids/classtable.dart';
+import 'package:yidianshi/page/classtable/class_add/wheel_choser.dart';
+import 'package:yidianshi/page/classtable/classtable_constant.dart';
 
 class ClassAddWindow extends StatefulWidget {
   final (ClassDetail, TimeArrangement)? toChange;

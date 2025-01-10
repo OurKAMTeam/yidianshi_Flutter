@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/model/xidian_ids/library.dart';
+import 'package:yidianshi/model/xidian_ids/library.dart';
 
 class EBookPlaceCard extends StatelessWidget {
   final EBookItem toUse;

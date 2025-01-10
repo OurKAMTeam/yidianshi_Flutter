@@ -7,7 +7,7 @@ import 'package:catcher_2/catcher_2.dart';
 import 'package:flutter/widgets.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:watermeter/repository/logger.dart';
+import 'package:yidianshi/repository/logger.dart';
 
 late SharedPreferences prefs;
 late PackageInfo packageInfo;

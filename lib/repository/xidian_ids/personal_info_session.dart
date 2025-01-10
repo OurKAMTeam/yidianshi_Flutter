@@ -5,10 +5,10 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:watermeter/page/login/jc_captcha.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
-import 'package:watermeter/repository/xidian_ids/ehall_session.dart';
+import 'package:yidianshi/page/login/jc_captcha.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/repository/xidian_ids/ehall_session.dart';
 
 class PersonalInfoSession extends EhallSession {
   Future<String> getInformationFromYjspt({bool onlyPhone = false}) async {

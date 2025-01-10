@@ -3,9 +3,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/model/xidian_ids/exam.dart';
-import 'package:watermeter/page/public_widget/public_widget.dart';
-import 'package:watermeter/page/public_widget/re_x_card.dart';
+import 'package:yidianshi/model/xidian_ids/exam.dart';
+import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/page/public_widget/re_x_card.dart';
 
 class ExamInfoCard extends StatelessWidget {
   final Subject? toUse;

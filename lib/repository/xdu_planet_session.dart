@@ -5,8 +5,8 @@
 // I will put my xduplanet.php to my github, which thanks to old computers.
 
 import 'package:dio/dio.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/model/xdu_planet/xdu_planet.dart';
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/model/xdu_planet/xdu_planet.dart';
 
 class PlanetSession extends NetworkSession {
   static const base = "https://xdlinux.github.io/planet";

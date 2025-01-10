@@ -5,8 +5,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/public_widget/toast.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
+import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
 
 class SchoolNetPasswordDialog extends StatefulWidget {
   const SchoolNetPasswordDialog({super.key});

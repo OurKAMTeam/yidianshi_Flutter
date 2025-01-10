@@ -9,12 +9,12 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:watermeter/page/login/jc_captcha.dart';
-import 'package:watermeter/repository/preference.dart' as pref;
-import 'package:watermeter/model/xidian_ids/score.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/repository/xidian_ids/ehall_session.dart';
+import 'package:yidianshi/page/login/jc_captcha.dart';
+import 'package:yidianshi/repository/preference.dart' as pref;
+import 'package:yidianshi/model/xidian_ids/score.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/repository/xidian_ids/ehall_session.dart';
 
 /// 考试成绩 4768574631264620
 class ScoreSession extends EhallSession {

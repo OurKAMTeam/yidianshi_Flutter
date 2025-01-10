@@ -7,12 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/model/xidian_ids/empty_classroom.dart';
-import 'package:watermeter/page/public_widget/public_widget.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/repository/xidian_ids/empty_classroom_session.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
+import 'package:yidianshi/model/xidian_ids/empty_classroom.dart';
+import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/repository/xidian_ids/empty_classroom_session.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
 
 class EmptyClassroomSearchWindow extends StatefulWidget {
   final List<EmptyClassroomPlace> places;

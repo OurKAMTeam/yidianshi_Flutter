@@ -4,12 +4,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
-import 'package:watermeter/controller/experiment_controller.dart';
-import 'package:watermeter/page/public_widget/context_extension.dart';
-import 'package:watermeter/page/setting/dialogs/experiment_password_dialog.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
-import 'package:watermeter/page/experiment/experiment_window.dart';
-import 'package:watermeter/page/homepage/small_function_card.dart';
+import 'package:yidianshi/controller/experiment_controller.dart';
+import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/page/setting/dialogs/experiment_password_dialog.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/page/experiment/experiment_window.dart';
+import 'package:yidianshi/page/homepage/small_function_card.dart';
 
 class ExperimentCard extends StatelessWidget {
   const ExperimentCard({super.key});

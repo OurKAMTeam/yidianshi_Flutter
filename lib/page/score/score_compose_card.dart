@@ -4,9 +4,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/page/public_widget/public_widget.dart';
-import 'package:watermeter/page/public_widget/re_x_card.dart';
-import 'package:watermeter/model/xidian_ids/score.dart';
+import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/page/public_widget/re_x_card.dart';
+import 'package:yidianshi/model/xidian_ids/score.dart';
 
 class ScoreComposeCard extends StatelessWidget {
   final Score score;

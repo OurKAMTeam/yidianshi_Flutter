@@ -4,14 +4,14 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:html/dom.dart';
-import 'package:watermeter/model/xidian_ids/network_usage.dart';
-import 'package:watermeter/page/public_widget/captcha_input_dialog.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/network_session.dart';
+import 'package:yidianshi/model/xidian_ids/network_usage.dart';
+import 'package:yidianshi/page/public_widget/captcha_input_dialog.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/network_session.dart';
 import 'package:html/parser.dart';
 import 'package:encrypt/encrypt.dart';
 import 'package:pointycastle/asymmetric/api.dart';
-import 'package:watermeter/repository/preference.dart' as prefs;
+import 'package:yidianshi/repository/preference.dart' as prefs;
 
 class SchoolnetSession extends NetworkSession {
   Dio get _dio => super.dio

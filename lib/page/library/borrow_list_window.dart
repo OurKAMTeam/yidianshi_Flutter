@@ -8,12 +8,12 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/page/public_widget/empty_list_view.dart';
-import 'package:watermeter/page/public_widget/public_widget.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/repository/xidian_ids/library_session.dart'
+import 'package:yidianshi/page/public_widget/empty_list_view.dart';
+import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/repository/xidian_ids/library_session.dart'
     as borrow_info;
-import 'package:watermeter/page/library/borrow_info_card.dart';
+import 'package:yidianshi/page/library/borrow_info_card.dart';
 
 class BorrowListWindow extends StatelessWidget {
   const BorrowListWindow({super.key});

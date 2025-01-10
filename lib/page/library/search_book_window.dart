@@ -2,18 +2,18 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/public_widget/both_side_sheet.dart';
+import 'package:yidianshi/page/public_widget/both_side_sheet.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/page/public_widget/empty_list_view.dart';
-import 'package:watermeter/repository/xidian_ids/library_session.dart'
+import 'package:yidianshi/page/public_widget/empty_list_view.dart';
+import 'package:yidianshi/repository/xidian_ids/library_session.dart'
     as search_book;
-import 'package:watermeter/model/xidian_ids/library.dart';
-import 'package:watermeter/page/library/book_detail_card.dart';
-import 'package:watermeter/page/library/book_info_card.dart';
+import 'package:yidianshi/model/xidian_ids/library.dart';
+import 'package:yidianshi/page/library/book_detail_card.dart';
+import 'package:yidianshi/page/library/book_info_card.dart';
 
 class SearchBookWindow extends StatefulWidget {
   const SearchBookWindow({super.key});

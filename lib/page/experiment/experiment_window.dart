@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/controller/experiment_controller.dart';
-import 'package:watermeter/page/experiment/experiment_info_card.dart';
-import 'package:watermeter/page/public_widget/public_widget.dart';
-import 'package:watermeter/page/public_widget/timeline_widget/timeline_title.dart';
-import 'package:watermeter/page/public_widget/timeline_widget/timeline_widget.dart';
+import 'package:yidianshi/controller/experiment_controller.dart';
+import 'package:yidianshi/page/experiment/experiment_info_card.dart';
+import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/page/public_widget/timeline_widget/timeline_title.dart';
+import 'package:yidianshi/page/public_widget/timeline_widget/timeline_widget.dart';
 
 class ExperimentWindow extends StatefulWidget {
   const ExperimentWindow({super.key});

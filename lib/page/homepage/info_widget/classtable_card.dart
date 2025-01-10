@@ -3,18 +3,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/public_widget/toast.dart';
+import 'package:yidianshi/page/public_widget/toast.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/controller/classtable_controller.dart';
-import 'package:watermeter/page/classtable/classtable.dart';
-import 'package:watermeter/page/homepage/home_card_padding.dart';
+import 'package:yidianshi/controller/classtable_controller.dart';
+import 'package:yidianshi/page/classtable/classtable.dart';
+import 'package:yidianshi/page/homepage/home_card_padding.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:timelines_plus/timelines_plus.dart';
-import 'package:watermeter/model/home_arrangement.dart';
-import 'package:watermeter/page/homepage/refresh.dart';
-import 'package:watermeter/page/public_widget/context_extension.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
+import 'package:yidianshi/model/home_arrangement.dart';
+import 'package:yidianshi/page/homepage/refresh.dart';
+import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
 
 class _ClassTableCardItemDescriptor {
   List<HomeArrangement> displayArrangements = [];

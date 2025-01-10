@@ -6,10 +6,10 @@
 /*
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:watermeter/page/login/jc_captcha.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/model/xidian_ids/creative.dart';
-import 'package:watermeter/repository/xidian_ids/ids_session.dart';
+import 'package:yidianshi/page/login/jc_captcha.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/model/xidian_ids/creative.dart';
+import 'package:yidianshi/repository/xidian_ids/ids_session.dart';
 
 class CreativeServiceSession extends IDSSession {
   static const url = "https://scjspt.xidian.edu.cn";

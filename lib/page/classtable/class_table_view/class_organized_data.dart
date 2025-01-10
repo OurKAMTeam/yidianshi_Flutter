@@ -5,9 +5,9 @@
 // Removed left/right, only use stack.
 
 import 'package:flutter/material.dart';
-import 'package:watermeter/model/xidian_ids/exam.dart';
-import 'package:watermeter/model/xidian_ids/classtable.dart';
-import 'package:watermeter/model/xidian_ids/experiment.dart';
+import 'package:yidianshi/model/xidian_ids/exam.dart';
+import 'package:yidianshi/model/xidian_ids/classtable.dart';
+import 'package:yidianshi/model/xidian_ids/experiment.dart';
 
 class ClassOrgainzedData {
   final List<dynamic> data;

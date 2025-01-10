@@ -6,11 +6,11 @@
 import 'package:flutter/material.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 // import 'package:talker_flutter/talker_flutter.dart';
-import 'package:watermeter/page/public_widget/context_extension.dart';
-import 'package:watermeter/page/setting/dialogs/sport_password_dialog.dart';
-import 'package:watermeter/page/sport/sport_window.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
-import 'package:watermeter/page/homepage/small_function_card.dart';
+import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/page/setting/dialogs/sport_password_dialog.dart';
+import 'package:yidianshi/page/sport/sport_window.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/page/homepage/small_function_card.dart';
 
 class SportCard extends StatelessWidget {
   const SportCard({super.key});

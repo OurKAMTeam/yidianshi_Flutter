@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import 'package:watermeter/model/xidian_ids/classtable.dart';
-import 'package:watermeter/page/classtable/class_table_view/class_card.dart';
-import 'package:watermeter/page/classtable/class_table_view/class_organized_data.dart';
-import 'package:watermeter/page/classtable/class_table_view/classtable_date_row.dart';
-import 'package:watermeter/page/classtable/classtable_constant.dart';
-import 'package:watermeter/page/classtable/classtable_state.dart';
-import 'package:watermeter/page/public_widget/public_widget.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
+import 'package:yidianshi/model/xidian_ids/classtable.dart';
+import 'package:yidianshi/page/classtable/class_table_view/class_card.dart';
+import 'package:yidianshi/page/classtable/class_table_view/class_organized_data.dart';
+import 'package:yidianshi/page/classtable/class_table_view/classtable_date_row.dart';
+import 'package:yidianshi/page/classtable/classtable_constant.dart';
+import 'package:yidianshi/page/classtable/classtable_state.dart';
+import 'package:yidianshi/page/public_widget/public_widget.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
 
 /// THe classtable view, the way the the classtable sheet rendered.
 class ClassTableView extends StatefulWidget {

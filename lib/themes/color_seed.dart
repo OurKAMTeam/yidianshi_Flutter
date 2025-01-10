@@ -3,10 +3,10 @@
 
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:watermeter/themes/default.dart';
-import 'package:watermeter/themes/green.dart';
-import 'package:watermeter/themes/orange.dart';
-import 'package:watermeter/themes/pink.dart';
+import 'package:yidianshi/themes/default.dart';
+import 'package:yidianshi/themes/green.dart';
+import 'package:yidianshi/themes/orange.dart';
+import 'package:yidianshi/themes/pink.dart';
 
 /// Colors for the class information card.
 const colorList = [

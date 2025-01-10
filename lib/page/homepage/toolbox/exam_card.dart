@@ -5,15 +5,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/public_widget/toast.dart';
+import 'package:yidianshi/page/public_widget/toast.dart';
 import 'package:get/get.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
-import 'package:watermeter/controller/exam_controller.dart';
-import 'package:watermeter/page/exam/exam_info_window.dart';
-import 'package:watermeter/page/homepage/refresh.dart';
-import 'package:watermeter/page/homepage/small_function_card.dart';
-import 'package:watermeter/page/public_widget/context_extension.dart';
-import 'package:watermeter/repository/xidian_ids/ids_session.dart';
+import 'package:yidianshi/controller/exam_controller.dart';
+import 'package:yidianshi/page/exam/exam_info_window.dart';
+import 'package:yidianshi/page/homepage/refresh.dart';
+import 'package:yidianshi/page/homepage/small_function_card.dart';
+import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/repository/xidian_ids/ids_session.dart';
 
 class ExamCard extends StatelessWidget {
   const ExamCard({super.key});

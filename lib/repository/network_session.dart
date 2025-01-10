@@ -9,7 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:flutter/widgets.dart';
-import 'package:watermeter/repository/logger.dart';
+import 'package:yidianshi/repository/logger.dart';
 
 late Directory supportPath;
 

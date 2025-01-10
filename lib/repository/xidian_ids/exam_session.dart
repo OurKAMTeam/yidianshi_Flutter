@@ -6,11 +6,11 @@
 
 import 'dart:io';
 
-import 'package:watermeter/model/xidian_ids/exam.dart';
-import 'package:watermeter/page/login/jc_captcha.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/preference.dart' as pref;
-import 'package:watermeter/repository/xidian_ids/ehall_session.dart';
+import 'package:yidianshi/model/xidian_ids/exam.dart';
+import 'package:yidianshi/page/login/jc_captcha.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/preference.dart' as pref;
+import 'package:yidianshi/repository/xidian_ids/ehall_session.dart';
 
 /// 考试安排 4768687067472349
 class ExamSession extends EhallSession {

@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:watermeter/model/toolbox_addresses.dart';
+import 'package:yidianshi/model/toolbox_addresses.dart';
 
 class WebViewListTile extends StatelessWidget {
   final WebViewAddresses data;

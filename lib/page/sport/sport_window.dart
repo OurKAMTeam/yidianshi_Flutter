@@ -6,8 +6,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/sport/sport_class_window.dart';
-import 'package:watermeter/page/sport/sport_score_window.dart';
+import 'package:yidianshi/page/sport/sport_class_window.dart';
+import 'package:yidianshi/page/sport/sport_score_window.dart';
 
 class SportWindow extends StatelessWidget {
   const SportWindow({super.key});

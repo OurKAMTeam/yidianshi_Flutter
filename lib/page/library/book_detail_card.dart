@@ -6,11 +6,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/model/xidian_ids/library.dart';
-import 'package:watermeter/page/library/book_place_card.dart';
-import 'package:watermeter/page/library/ebook_place_card.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/xidian_ids/library_session.dart';
+import 'package:yidianshi/model/xidian_ids/library.dart';
+import 'package:yidianshi/page/library/book_place_card.dart';
+import 'package:yidianshi/page/library/ebook_place_card.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/xidian_ids/library_session.dart';
 
 class BookDetailCard extends StatefulWidget {
   final BookInfo toUse;

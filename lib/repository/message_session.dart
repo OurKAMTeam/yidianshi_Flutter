@@ -8,10 +8,10 @@ import 'dart:math' as math;
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:synchronized/synchronized.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/model/message/message.dart';
-import 'package:watermeter/repository/preference.dart' as pref;
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/model/message/message.dart';
+import 'package:yidianshi/repository/preference.dart' as pref;
 
 RxList<NoticeMessage> messages = <NoticeMessage>[].obs;
 Rx<UpdateMessage?> updateMessage = Rx<UpdateMessage?>(null);

@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:image/image.dart' as img;
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/repository/logger.dart';
+import 'package:yidianshi/repository/logger.dart';
 
 class Lazy<T> {
   final T Function() _initializer;

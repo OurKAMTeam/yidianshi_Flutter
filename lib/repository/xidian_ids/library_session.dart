@@ -6,12 +6,12 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:watermeter/page/login/jc_captcha.dart';
-import 'package:watermeter/repository/logger.dart';
+import 'package:yidianshi/page/login/jc_captcha.dart';
+import 'package:yidianshi/repository/logger.dart';
 import 'package:get/get.dart';
-import 'package:watermeter/model/xidian_ids/library.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/repository/xidian_ids/ids_session.dart';
+import 'package:yidianshi/model/xidian_ids/library.dart';
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/repository/xidian_ids/ids_session.dart';
 
 Rx<SessionState> state = SessionState.none.obs;
 RxString error = "".obs;

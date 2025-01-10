@@ -6,9 +6,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
-import 'package:watermeter/model/toolbox_addresses.dart';
-import 'package:watermeter/page/public_widget/context_extension.dart';
-import 'package:watermeter/page/toolbox/webview_list_tile.dart';
+import 'package:yidianshi/model/toolbox_addresses.dart';
+import 'package:yidianshi/page/public_widget/context_extension.dart';
+import 'package:yidianshi/page/toolbox/webview_list_tile.dart';
 
 class ToolBoxPage extends StatefulWidget {
   const ToolBoxPage({super.key});

@@ -6,12 +6,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/page/public_widget/app_icon.dart';
-import 'package:watermeter/page/public_widget/re_x_card.dart';
-import 'package:watermeter/page/setting/about_page/easter_egg_page.dart';
-import 'package:watermeter/page/setting/about_page/developer_widget.dart';
-import 'package:watermeter/page/setting/about_page/link_widget.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
+import 'package:yidianshi/page/public_widget/app_icon.dart';
+import 'package:yidianshi/page/public_widget/re_x_card.dart';
+import 'package:yidianshi/page/setting/about_page/easter_egg_page.dart';
+import 'package:yidianshi/page/setting/about_page/developer_widget.dart';
+import 'package:yidianshi/page/setting/about_page/link_widget.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});

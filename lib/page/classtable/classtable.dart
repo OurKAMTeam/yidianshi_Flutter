@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: MPL-2.0 OR Apache-2.0
 
 import 'package:flutter/material.dart';
-import 'package:watermeter/page/classtable/classtable_state.dart';
-import 'package:watermeter/page/classtable/class_page/classtable_page.dart';
+import 'package:yidianshi/page/classtable/classtable_state.dart';
+import 'package:yidianshi/page/classtable/class_page/classtable_page.dart';
 
 /// Intro of the classtable.
 class ClassTableWindow extends StatelessWidget {

@@ -8,18 +8,18 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:watermeter/controller/classtable_controller.dart';
-import 'package:watermeter/controller/exam_controller.dart';
-import 'package:watermeter/controller/experiment_controller.dart';
-import 'package:watermeter/model/xidian_ids/classtable.dart';
-import 'package:watermeter/model/xidian_ids/exam.dart';
-import 'package:watermeter/model/xidian_ids/experiment.dart';
-import 'package:watermeter/page/classtable/class_table_view/class_organized_data.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
-import 'package:watermeter/repository/xidian_ids/classtable_session.dart';
-import 'package:watermeter/themes/color_seed.dart';
+import 'package:yidianshi/controller/classtable_controller.dart';
+import 'package:yidianshi/controller/exam_controller.dart';
+import 'package:yidianshi/controller/experiment_controller.dart';
+import 'package:yidianshi/model/xidian_ids/classtable.dart';
+import 'package:yidianshi/model/xidian_ids/exam.dart';
+import 'package:yidianshi/model/xidian_ids/experiment.dart';
+import 'package:yidianshi/page/classtable/class_table_view/class_organized_data.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/repository/xidian_ids/classtable_session.dart';
+import 'package:yidianshi/themes/color_seed.dart';
 
 /// Use a inheritedWidget to share the ClassTableWidgetState
 class ClassTableState extends InheritedWidget {

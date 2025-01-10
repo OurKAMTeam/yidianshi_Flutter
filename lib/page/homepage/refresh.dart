@@ -4,20 +4,20 @@
 // Refresh formula for homepage.
 
 import 'package:jiffy/jiffy.dart';
-import 'package:watermeter/controller/experiment_controller.dart';
-import 'package:watermeter/model/home_arrangement.dart';
-import 'package:watermeter/repository/logger.dart';
+import 'package:yidianshi/controller/experiment_controller.dart';
+import 'package:yidianshi/model/home_arrangement.dart';
+import 'package:yidianshi/repository/logger.dart';
 import 'package:get/get.dart';
-import 'package:watermeter/controller/classtable_controller.dart';
-import 'package:watermeter/controller/exam_controller.dart';
-import 'package:watermeter/repository/xidian_ids/school_card_session.dart'
+import 'package:yidianshi/controller/classtable_controller.dart';
+import 'package:yidianshi/controller/exam_controller.dart';
+import 'package:yidianshi/repository/xidian_ids/school_card_session.dart'
     as school_card_session;
-import 'package:watermeter/repository/message_session.dart' as message;
-import 'package:watermeter/repository/xidian_ids/library_session.dart'
+import 'package:yidianshi/repository/message_session.dart' as message;
+import 'package:yidianshi/repository/xidian_ids/library_session.dart'
     as borrow_info;
-import 'package:watermeter/repository/xidian_ids/payment_session.dart'
+import 'package:yidianshi/repository/xidian_ids/payment_session.dart'
     as electricity;
-import 'package:watermeter/repository/xidian_ids/ids_session.dart';
+import 'package:yidianshi/repository/xidian_ids/ids_session.dart';
 
 DateTime updateTime = DateTime.now();
 

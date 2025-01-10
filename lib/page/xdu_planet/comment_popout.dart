@@ -7,11 +7,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
-import 'package:watermeter/model/xdu_planet/xdu_planet.dart';
-import 'package:watermeter/page/public_widget/toast.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/preference.dart' as pref;
-import 'package:watermeter/repository/xdu_planet_session.dart';
+import 'package:yidianshi/model/xdu_planet/xdu_planet.dart';
+import 'package:yidianshi/page/public_widget/toast.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/preference.dart' as pref;
+import 'package:yidianshi/repository/xdu_planet_session.dart';
 
 class CommentPopout extends StatelessWidget {
   final String id;

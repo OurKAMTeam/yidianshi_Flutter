@@ -7,12 +7,12 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:watermeter/page/login/jc_captcha.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/repository/network_session.dart';
-import 'package:watermeter/repository/preference.dart' as preference;
-import 'package:watermeter/model/xidian_ids/classtable.dart';
-import 'package:watermeter/repository/xidian_ids/ehall_session.dart';
+import 'package:yidianshi/page/login/jc_captcha.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/repository/network_session.dart';
+import 'package:yidianshi/repository/preference.dart' as preference;
+import 'package:yidianshi/model/xidian_ids/classtable.dart';
+import 'package:yidianshi/repository/xidian_ids/ehall_session.dart';
 
 /// 课程表 4770397878132218
 class ClassTableFile extends EhallSession {

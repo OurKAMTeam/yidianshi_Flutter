@@ -2,14 +2,14 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:watermeter/page/public_widget/both_side_sheet.dart';
+import 'package:yidianshi/page/public_widget/both_side_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:watermeter/page/public_widget/re_x_card.dart';
-import 'package:watermeter/page/score/score_compose_card.dart';
-import 'package:watermeter/page/score/score_state.dart';
-import 'package:watermeter/repository/preference.dart';
-import 'package:watermeter/repository/xidian_ids/score_session.dart';
+import 'package:yidianshi/page/public_widget/re_x_card.dart';
+import 'package:yidianshi/page/score/score_compose_card.dart';
+import 'package:yidianshi/page/score/score_state.dart';
+import 'package:yidianshi/repository/preference.dart';
+import 'package:yidianshi/repository/xidian_ids/score_session.dart';
 
 class ScoreInfoCard extends StatefulWidget {
   // Mark is a variable in ScoreInfo class

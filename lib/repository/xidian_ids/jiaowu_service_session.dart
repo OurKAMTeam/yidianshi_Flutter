@@ -6,11 +6,11 @@
 /*
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:watermeter/page/login/jc_captcha.dart';
-import 'package:watermeter/repository/logger.dart';
-import 'package:watermeter/model/xidian_ids/empty_classroom.dart';
+import 'package:yidianshi/page/login/jc_captcha.dart';
+import 'package:yidianshi/repository/logger.dart';
+import 'package:yidianshi/model/xidian_ids/empty_classroom.dart';
 
-import 'package:watermeter/repository/xidian_ids/ids_session.dart';
+import 'package:yidianshi/repository/xidian_ids/ids_session.dart';
 
 class JiaowuServiceSession extends IDSSession {
   Map<String, String> services = {
