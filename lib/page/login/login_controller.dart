@@ -24,24 +24,26 @@ class LoginController extends GetxController {
 
   @override
   void onInit() {
-    super.onInit();
     _checkLoginState();
+    super.onInit();
+    
   }
 
-  void _checkLoginState() {
+  void _checkLoginState(){
     String username = preference.getString(preference.Preference.idsAccount);
     String password = preference.getString(preference.Preference.idsPassword);
     _isFirstLogin.value = username.isEmpty || password.isEmpty;
     
     log.info("isFirstLogin: ${_isFirstLogin.value}");
 
+
     if (_isFirstLogin.value) {
       loginState.value = IDSLoginState.manual;
       IDSSession().dio.get("https://www.xidian.edu.cn");
-    }else{
-      Get.toNamed(Routes.HOME);
+    } else {
+      // Schedule navigation for after the build phase
+      Future.microtask(() => Get.offAllNamed(Routes.HOME));
     }
-
   }
 
   @override

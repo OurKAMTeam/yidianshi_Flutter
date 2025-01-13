@@ -7,11 +7,11 @@ import 'package:get/get.dart';
 import 'package:catcher_2/catcher_2.dart';
 import 'package:yidianshi/shared/common/app_init.dart';
 import 'package:yidianshi/shared/common/app_theme.dart';
+import 'package:yidianshi/shared/shared.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 import 'package:yidianshi/widget/home/info_widget/controller/theme_controller.dart';
 import 'package:yidianshi/routes/routes.dart';
 import 'package:yidianshi/xd_api/base/ids_session.dart';
-import 'package:yidianshi/shared/utils/logger.dart';
 import 'package:home_widget/home_widget.dart';
 import 'di.dart' ;
 import 'app_binding.dart';
@@ -54,9 +54,14 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetBuilder<ThemeController>(
       builder: (c) => GetMaterialApp(
+        navigatorKey: preference.debuggerKey,
+        navigatorObservers: [MyNavigatorObserver()],
         initialBinding: AppBinding(),
         initialRoute: Routes.LOGIN,
         getPages: AppPages.routes,
+        defaultTransition: Transition.native,
+        defaultGlobalState: true,
+        popGesture: true,
         localizationsDelegates: [
           FlutterI18nDelegate(
             translationLoader: FileTranslationLoader(
@@ -82,7 +87,6 @@ class _MyAppState extends State<MyApp> {
         ],
         debugShowCheckedModeBanner: false,
         scrollBehavior: MyCustomScrollBehavior(),
-        navigatorKey: preference.debuggerKey,
         title: Platform.isIOS || Platform.isMacOS ? "XDYou" : 'Traintime PDA',
         theme: AppTheme.getLightTheme(c),
         darkTheme: AppTheme.getDarkTheme(c),

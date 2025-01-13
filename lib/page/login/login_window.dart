@@ -29,20 +29,9 @@ class LoginWindow extends GetView<LoginController> {
     Widget? suffixIcon,
   }) =>
       InputDecoration(
-        border: InputBorder.none,
-        floatingLabelBehavior: FloatingLabelBehavior.never,
-        prefixIcon: Icon(
-          iconData,
-          size: _inputFieldIconSize,
-          color: _inputFieldColor,
-        ),
-        hintStyle: TextStyle(
-          fontSize: _inputFieldFontSize,
-          color: _inputFieldColor,
-        ),
+        prefixIcon: Icon(iconData),
         hintText: hintText,
         suffixIcon: suffixIcon,
-        fillColor: _inputFieldBackgroundColor,
       );
 
   Widget _contentColumn(BuildContext context) => Column(
@@ -54,64 +43,27 @@ class LoginWindow extends GetView<LoginController> {
               iconData: MingCuteIcons.mgc_user_3_fill,
               hintText: FlutterI18n.translate(context, "login.identity_number"),
             ),
-            style: TextStyle(
-              fontSize: _inputFieldFontSize,
-              color: _inputFieldColor,
-            ),
-          ).center().padding(horizontal: 12).decorated(
-            color: _inputFieldBackgroundColor,
-            borderRadius: BorderRadius.circular(roundRadius),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withAlpha(19),
-                offset: const Offset(0, 2),
-                blurRadius: 1,
-              ),
-            ],
-          ).height(64),
+          ).center(),
           const SizedBox(height: 16.0),
           Obx(() => TextField(
             controller: controller.idsPasswordController,
             obscureText: !controller.isPasswordVisible.value,
-            style: TextStyle(
-              fontSize: _inputFieldFontSize,
-              color: _inputFieldColor,
-            ),
             decoration: _inputDecoration(
               iconData: MingCuteIcons.mgc_safe_lock_fill,
               hintText: FlutterI18n.translate(context, "login.password"),
               suffixIcon: IconButton(
                 icon: Icon(
-                  controller.isPasswordVisible.value
-                      ? Icons.visibility_off
-                      : Icons.visibility,
-                  size: _inputFieldIconSize,
-                  color: _inputFieldColor,
+                  controller.isPasswordVisible.value ? Icons.visibility_off : Icons.visibility,
                 ),
                 onPressed: controller.togglePasswordVisibility,
               ),
             ),
-          ).center().padding(horizontal: 12).decorated(
-            color: _inputFieldBackgroundColor,
-            borderRadius: BorderRadius.circular(roundRadius),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withAlpha(19),
-                offset: const Offset(0, 2),
-                blurRadius: 1,
-              ),
-            ],
-          ).height(64)),
+          ).center()),
           SizedBox(height: Get.width / Get.height > 1.0 ? 16.0 : 64.0),
           Obx(() => FilledButton(
             style: FilledButton.styleFrom(
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              padding: const EdgeInsets.all(12.0),
               minimumSize: const Size(double.infinity, 56),
               maximumSize: const Size(double.infinity, 64),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(roundRadius),
-              ),
             ),
             onPressed: controller.isLoading.value ? null : controller.login,
             child: Text(

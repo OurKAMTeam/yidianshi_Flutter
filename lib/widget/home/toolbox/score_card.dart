@@ -4,11 +4,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:yidianshi/widget/public_widget_all/toast.dart';
-import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
-import 'package:yidianshi/page/score/score.dart';
 import 'package:yidianshi/xd_api/tool/score_session.dart';
 import 'package:yidianshi/xd_api/base/ids_session.dart';
 import 'package:yidianshi/widget/home/small_function_card.dart';
+import 'package:get/get.dart';
+import 'package:yidianshi/routes/app_pages.dart';
+import 'package:yidianshi/routes/routes.dart';
+
 
 class ScoreCard extends StatelessWidget {
   const ScoreCard({super.key});
@@ -26,7 +28,11 @@ class ScoreCard extends StatelessWidget {
             ),
           );
         } else {
-          context.pushReplacement(const ScoreWindow());
+            Get.toNamed(
+              Routes.HOME + Routes.SCORE,
+              preventDuplicates: true,
+              id: null,
+            );
         }
       },
       icon: Icons.grading_rounded,

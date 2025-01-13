@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/page/homepage/homepage.dart';
-import 'package:yidianshi/page/xdu_planet/xdu_planet_page.dart';
-import 'package:yidianshi/page/setting/setting.dart';
-import 'package:yidianshi/widget/widget.dart';
+import 'package:yidianshi/xd_api/tool/message_session.dart' as message;
 import 'home_controller.dart';
 
 class PageInformation {
@@ -16,23 +13,19 @@ class PageInformation {
   final String name;
   final IconData icon;
   final IconData iconChoice;
+  final MainTabs tab;
 
   PageInformation({
     required this.index,
     required this.name,
     required this.icon,
     required this.iconChoice,
+    required this.tab,
   });
 }
 
 class HomeScreen extends GetView<HomeController> {
   HomeScreen({super.key});
-
-  final List<Widget> pages = [
-    const MainPage(),
-    const XDUPlanetPage(),
-    const SettingWindow(),
-  ];
 
   final List<PageInformation> pageInformation = [
     PageInformation(
@@ -40,59 +33,89 @@ class HomeScreen extends GetView<HomeController> {
       name: "主页",
       icon: MingCuteIcons.mgc_home_1_line,
       iconChoice: MingCuteIcons.mgc_home_1_fill,
+      tab: MainTabs.home,
     ),
     PageInformation(
       index: 1,
-      name: "西电星球",
-      icon: MingCuteIcons.mgc_planet_line,
-      iconChoice: MingCuteIcons.mgc_planet_fill,
+      name: "评论",
+      icon: MingCuteIcons.mgc_message_2_line,
+      iconChoice: MingCuteIcons.mgc_message_2_fill,
+      tab: MainTabs.post,
     ),
     PageInformation(
       index: 2,
+      name: "功能",
+      icon: MingCuteIcons.mgc_tool_line,
+      iconChoice: MingCuteIcons.mgc_tool_fill,
+      tab: MainTabs.functions,
+    ),
+    PageInformation(
+      index: 3,
       name: "设置",
       icon: MingCuteIcons.mgc_settings_2_line,
       iconChoice: MingCuteIcons.mgc_settings_2_fill,
+      tab: MainTabs.setting,
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      body: PageView(
-        controller: controller.pageController,
-        children: pages,
-        onPageChanged: (index) => controller.selectedIndex = index,
-      ),
-      bottomNavigationBar: Obx(
-        () => NavigationBar(
-          height: 64,
-          selectedIndex: controller.selectedIndex,
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-          onDestinationSelected: (index) {
-            controller.selectedIndex = index;
-            controller.pageController.jumpToPage(index);
-          },
-          destinations: pageInformation.map((info) {
-            return NavigationDestination(
-              icon: controller.selectedIndex == info.index
-                  ? Icon(info.iconChoice)
-                  : Icon(info.icon),
-              label: info.name,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Obx(() => Scaffold(
+        extendBodyBehindAppBar: true,
+        body: Navigator(
+          key: Get.nestedKey(1), // 使用嵌套导航
+          onGenerateRoute: (settings) {
+            return MaterialPageRoute(
+              builder: (context) => _buildContent(controller.currentTab.value),
+              settings: settings,
             );
-          }).toList(),
+          },
         ),
-      ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: pageInformation.map(
+            (e) => BottomNavigationBarItem(
+              icon: Icon(e.icon),
+              activeIcon: Icon(e.iconChoice),
+              label: e.name,
+            ),
+          ).toList(),
+          type: BottomNavigationBarType.fixed,
+          currentIndex: controller.getCurrentIndex(controller.currentTab.value),
+          onTap: (index) => controller.switchTab(index),
+          selectedLabelStyle: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      )),
     );
   }
 
+
+    Widget _buildContent(MainTabs tab) {
+    switch (tab) {
+      case MainTabs.home:
+        return controller.homeTab;
+      case MainTabs.post:
+        return controller.postTab;
+      case MainTabs.functions:
+        return controller.functionsTab;
+      case MainTabs.setting:
+        return controller.settingTab;
+      default:
+        return controller.homeTab;
+    }
+  }
+
   void _showUpdateNotice(BuildContext context) {
-    if (controller.hasUpdate) {
+    if (message.updateMessage.value != null) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
           title: const Text("发现新版本"),
-          content: Obx(() => Text(controller.updateMessage)),
+          content: Obx(() => Text(message.updateMessage.value!.update.join('\n'))),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),

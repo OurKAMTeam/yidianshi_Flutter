@@ -3,6 +3,10 @@ import 'package:yidianshi/page/home/home_binding.dart';
 import 'package:yidianshi/page/home/home_screen.dart';
 import 'package:yidianshi/page/login/login_binding.dart';
 import 'package:yidianshi/page/login/login_window.dart';
+import 'package:yidianshi/page/score/score_binding.dart';
+import 'package:yidianshi/page/score/score_screen.dart';
+import 'package:yidianshi/page/testpage/testpage_binding.dart';
+import 'package:yidianshi/page/testpage/testpage_screen.dart';
 // import 'package:yidianshi/shared/utils/preference.dart' as preference;
 // import 'package:yidianshi/xd_api/base/ids_session.dart';
 
@@ -16,12 +20,25 @@ class AppPages {
       name: Routes.HOME,
       page: () => HomeScreen(),
       binding: HomeBinding(),
-    ),
+      children: [
+        GetPage(
+          name: Routes.SCORE,
+          page: () => const ScoreScreen(),
+          binding: ScoreBinding(),
+        ),
+        GetPage(
+          name: Routes.TESTPAGE,
+          page: () => const TestPageScreen(),
+          binding: TestPageBinding(),
+        ),
+      ]),
     GetPage(
       name: Routes.LOGIN,
       page: () => const LoginWindow(),
       binding: LoginBinding(),
     ),
+            
+
   ];
 
   // static String determineInitialRoute() {

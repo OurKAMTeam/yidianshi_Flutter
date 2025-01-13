@@ -60,13 +60,13 @@ class SliderCaptchaClientProvider {
         width: pieceWidth, height: pieceHeight, fit: BoxFit.fitWidth));
   }
 
-  Future<void> solve(BuildContext? context, {int retryCount = 20}) async {
+  Future<bool> solve(BuildContext? context, {int retryCount = 20}) async {
     for (int i = 0; i < retryCount; i++) {
       await updatePuzzle();
       double? answer = _trySolve(puzzleData!, pieceData!);
       if (answer != null && await verify(answer)) {
         log.info("Parse captcha $i time(s), success.");
-        return;
+        return true;
       }
       log.info("Parse captcha $i time(s), failure.");
     }
@@ -79,6 +79,7 @@ class SliderCaptchaClientProvider {
           builder: (context) => CaptchaWidget(provider: this),
         ),
       );
+      return true; // If we get here, the user completed the captcha
     }
     throw CaptchaSolveFailedException();
   }

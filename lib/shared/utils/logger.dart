@@ -16,23 +16,47 @@ final logDioAdapter = TalkerDioLogger(
 );
 
 class PDACatcher2Logger extends Catcher2Logger {
+  final Map<String, DateTime> _lastErrorTime = {};
+  final Duration _errorThreshold = const Duration(milliseconds: 3000);
+
+  void _logWithStack(String level, String message) {
+    try {
+      throw Exception();
+    } catch (e, stack) {
+      final key = '$message${stack.toString()}';
+      final now = DateTime.now();
+      final lastTime = _lastErrorTime[key];
+
+      if (lastTime == null || now.difference(lastTime) > _errorThreshold) {
+        _lastErrorTime[key] = now;
+        log.logTyped(
+          TalkerLog(
+            '$message\nStack trace:\n$stack',
+            title: 'Custom Catcher2 Logger | $level',
+            logLevel: level == 'Error' ? LogLevel.error : LogLevel.info,
+          ),
+        );
+      }
+    }
+  }
+
   @override
   void info(String message) {
-    log.info('Custom Catcher2 Logger | Info | $message');
+    _logWithStack('Info', message);
   }
 
   @override
   void fine(String message) {
-    log.info('Custom Catcher2 Logger | Fine | $message');
+    _logWithStack('Fine', message);
   }
 
   @override
   void warning(String message) {
-    log.warning('Custom Catcher2 Logger | Warning | $message');
+    _logWithStack('Warning', message);
   }
 
   @override
   void severe(String message) {
-    log.error('Custom Catcher2 Logger | Servere | $message');
+    _logWithStack('Severe', message);
   }
 }

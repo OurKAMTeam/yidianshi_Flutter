@@ -4,87 +4,17 @@
 import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/widget/home/home_card_padding.dart';
-import 'package:yidianshi/widget/home/toolbox/schoolnet_card.dart';
-import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:get/get.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/widget/home/info_widget/controller/classtable_controller.dart';
-import 'package:yidianshi/widget/home/info_widget/controller/exam_controller.dart';
-import 'package:yidianshi/widget/home/info_widget/controller/experiment_controller.dart';
-import 'package:yidianshi/widget/home/info_widget/classtable_card.dart';
-import 'package:yidianshi/widget/home/info_widget/electricity_card.dart';
-import 'package:yidianshi/widget/home/info_widget/library_card.dart';
-import 'package:yidianshi/widget/home/info_widget/school_card_info_card.dart';
-import 'package:yidianshi/widget/home/notice_card/notice_card.dart';
-import 'package:yidianshi/widget/home/refresh.dart';
-import 'package:yidianshi/widget/home/toolbox/empty_classroom_card.dart';
-import 'package:yidianshi/widget/home/toolbox/exam_card.dart';
-import 'package:yidianshi/widget/home/toolbox/experiment_card.dart';
-import 'package:yidianshi/widget/home/toolbox/score_card.dart';
-import 'package:yidianshi/widget/home/toolbox/sport_card.dart';
-import 'package:yidianshi/widget/home/toolbox/toolbox_card.dart';
-import 'package:yidianshi/widget/login/jc_captcha.dart';
-import 'package:yidianshi/shared/utils/preference.dart' as prefs;
+import './homepage_controller.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+import 'package:yidianshi/widget/widget.dart';
+import 'package:yidianshi/routes/routes.dart';
 
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  final List<Widget> children = const [
-    ElectricityCard(),
-    LibraryCard(),
-    SchoolCardInfoCard(),
-  ];
-
-  final List<Widget> smallFunction = [
-    const ScoreCard(),
-    const ExamCard(),
-    const EmptyClassroomCard(),
-    const SchoolnetCard(),
-    if (prefs.getBool(prefs.Preference.role) == false) ...[
-      const ExperimentCard(),
-      const SportCard(),
-    ],
-    const ToolboxCard(),
-  ];
-
-  String get _now {
-    DateTime now = DateTime.now();
-
-    if (now.hour >= 5 && now.hour < 9) {
-      return "homepage.time_string.morning";
-    }
-    if (now.hour >= 9 && now.hour < 11) {
-      return "homepage.time_string.before_noon";
-    }
-    if (now.hour >= 11 && now.hour < 14) {
-      return "homepage.time_string.at_noon";
-    }
-    if (now.hour >= 14 && now.hour < 18) {
-      return "homepage.time_string.afternoon";
-    }
-    if (now.hour >= 18 || now.hour == 0) {
-      return "homepage.time_string.night";
-    }
-    return "homepage.time_string.midnight";
-  }
-
-  TextStyle textStyle(context) => TextStyle(
-        fontSize: 16,
-        color: Theme.of(context).colorScheme.primary,
-        fontWeight: FontWeight.w700,
-      );
+class HomePageScreen extends GetView<HomePageController> {
+  const HomePageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +26,7 @@ class _MainPageState extends State<MainPage> {
         },
         headerSliverBuilder: (context, innerBoxIsScrolled) => <Widget>[
           SliverAppBar(
+            automaticallyImplyLeading: false,
             centerTitle: false,
             expandedHeight: 160,
             pinned: true,
@@ -111,7 +42,7 @@ class _MainPageState extends State<MainPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      FlutterI18n.translate(context, _now),
+                      FlutterI18n.translate(context, controller.timeString),
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -121,7 +52,6 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ),
                     Text(
-                      /// TODO: check it
                       c.state == ClassTableState.fetched
                           ? c.getCurrentWeek(updateTime) >= 0 &&
                                   c.getCurrentWeek(updateTime) <
@@ -169,12 +99,13 @@ class _MainPageState extends State<MainPage> {
                 "homepage.loading_message",
               ),
             );
-            update(
-                context: context,
-                sliderCaptcha: (String cookieStr) {
-                  return SliderCaptchaClientProvider(cookie: cookieStr)
-                      .solve(context);
-                });
+            controller.updateWithCaptcha(
+              context: context,
+              sliderCaptcha: (String cookieStr) {
+                return SliderCaptchaClientProvider(cookie: cookieStr)
+                    .solve(context);
+              },
+            );
           },
           header: PhoenixHeader(
             skyColor: Theme.of(context).colorScheme.surface,
@@ -188,28 +119,40 @@ class _MainPageState extends State<MainPage> {
               children: [
                 const HeaderLocator(),
                 <Widget>[
-                  const NoticeCard(),
-                  if (prefs.getBool(prefs.Preference.role))
-                    Text(
-                      FlutterI18n.translate(
-                        context,
-                        "homepage.postgraduate_notice",
-                      ),
-                    )
-                        .center()
-                        .constrained(height: 30)
-                        .paddingDirectional(
-                          horizontal: 16,
-                          vertical: 14,
-                        )
-                        .withHomeCardStyle(context),
+                  // const NoticeCard(),
+                  // if (prefs.getBool(prefs.Preference.role))
+                  //   Text(
+                  //     FlutterI18n.translate(
+                  //       context,
+                  //       "homepage.postgraduate_notice",
+                  //     ),
+                  //   )
+                  //       .center()
+                  //       .constrained(height: 30)
+                  //       .paddingDirectional(
+                  //         horizontal: 16,
+                  //         vertical: 14,
+                  //       )
+                  //       .withHomeCardStyle(context),
                   const ClassTableCard(),
-                  ...children,
+                  ...controller.children,
                   GridView.extent(
                     maxCrossAxisExtent: 96,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    children: smallFunction,
+                    children: [
+                      SmallFunctionCard(
+                        onTap: () {
+                          Get.toNamed(
+                            Routes.HOME + Routes.SCORE,
+                            preventDuplicates: true,
+                            id: null,
+                          );
+                        },
+                          icon: Icons.grading_rounded,
+                          nameKey: "homepage.toolbox.score",
+                        ),]
+                      //controller.smallFunction,
                   ),
                 ].toColumn().padding(
                       vertical: 8,

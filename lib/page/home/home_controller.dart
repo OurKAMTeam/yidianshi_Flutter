@@ -19,25 +19,68 @@ import 'package:yidianshi/widget/home/info_widget/controller/classtable_controll
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 import 'package:yidianshi/xd_api/tool/classtable_session.dart';
 import 'package:yidianshi/widget/widget.dart';
-import 'package:restart_app/restart_app.dart';
+import 'package:yidianshi/page/homepage/homepage_screen.dart';
+import 'package:yidianshi/page/post/post_screen.dart';
+import 'package:yidianshi/page/functions/functions_screen.dart';
+import 'package:yidianshi/page/setting/setting.dart';
 
+enum MainTabs { home, post, functions, setting }
 
 class HomeController extends GetxController with WidgetsBindingObserver {
-  final _selectedIndex = 0.obs;
-  late PageController pageController;
+  final currentTab = MainTabs.home.obs;
+  
+  // Lazy loaded tab instances
+  late final homeTab = const HomePageScreen();
+  late final postTab = const PostScreen();
+  late final functionsTab = const FunctionsScreen();
+  late final settingTab = const SettingWindow();
+
+  //ate PageController pageController;
   late StreamSubscription _intentSub;
   static bool refreshAtStart = false;
 
-  int get selectedIndex => _selectedIndex.value;
-  set selectedIndex(int value) => _selectedIndex.value = value;
+  int get selectedIndex => getCurrentIndex(currentTab.value);
+  
+  void switchTab(int index) {
+    final newTab = _getCurrentTab(index);
+    if (currentTab.value != newTab) {
+      currentTab.value = newTab;
+    }
+  }
 
-  bool get hasUpdate => message.updateMessage.value != null;
-  String get updateMessage => message.updateMessage.value?.toString() ?? '';
+  int getCurrentIndex(MainTabs tab) {
+    switch (tab) {
+      case MainTabs.home:
+        return 0;
+      case MainTabs.post:
+        return 1;
+      case MainTabs.functions:
+        return 2;
+      case MainTabs.setting:
+        return 3;
+      default:
+        return 0;
+    }
+  }
+
+  MainTabs _getCurrentTab(int index) {
+    switch (index) {
+      case 0:
+        return MainTabs.home;
+      case 1:
+        return MainTabs.post;
+      case 2:
+        return MainTabs.functions;
+      case 3:
+        return MainTabs.setting;
+      default:
+        return MainTabs.home;
+    }
+  }
 
   @override
   void onInit() {
     super.onInit();
-    pageController = PageController(initialPage: _selectedIndex.value);
     WidgetsBinding.instance.addObserver(this);
 
     if (Platform.isAndroid || Platform.isIOS) {
@@ -66,7 +109,7 @@ class HomeController extends GetxController with WidgetsBindingObserver {
       _intentSub.cancel();
     }
     WidgetsBinding.instance.removeObserver(this);
-    pageController.dispose();
+    //pageController.dispose();
     super.onClose();
   }
 
@@ -327,10 +370,6 @@ class HomeController extends GetxController with WidgetsBindingObserver {
         ),
       );
     }
-  }
-
-  void updateCurrentData() {
-    updateCurrentData();
   }
 
   void restartApp() {

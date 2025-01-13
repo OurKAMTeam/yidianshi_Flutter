@@ -44,6 +44,7 @@ class IDSSession extends NetworkSession {
             "Offline status: $offline",
           );
           if (offline) {
+            handler.next(options);
             handler.reject(
               DioException.requestCancelled(
                 reason: "Offline mode, all ids function unuseable.",
