@@ -18,15 +18,19 @@ class HomePageController extends GetxController {
 
   final List<Widget> children = const [
     ElectricityCard(),
-    LibraryCard(), // complete
-    SchoolCardInfoCard(),
+    
+    LibraryCard(), // complete     ------------------------------Problem
+    SchoolCardInfoCard(), //    ------------------------------Problem
   ];
 
   final List<Widget> smallFunction = [
+    // Over
     const ScoreCard(),  // complete
+    // Over
     const ExamCard(),  // complete
+    // Over
     const EmptyClassroomCard(), // complete
-    const SchoolnetCard(),
+    const SchoolnetCard(),  // ------------------------------Problem
     if (prefs.getBool(prefs.Preference.role) == false) ...[
       const ExperimentCard(), // complete
       const SportCard(), // complete

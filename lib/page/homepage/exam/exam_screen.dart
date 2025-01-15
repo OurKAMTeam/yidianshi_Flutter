@@ -10,7 +10,6 @@ import 'package:yidianshi/widget/public_widget_all/timeline_widget/timeline_titl
 import 'package:yidianshi/widget/public_widget_all/timeline_widget/timeline_widget.dart';
 import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:yidianshi/xd_api/base/ids_session.dart';
-import 'package:yidianshi/widget/home/info_widget/controller/exam_controller.dart' as info_widget;
 import 'exam_controller.dart';
 import '../../../widget/exam/exam_info_card.dart';
 import '../../../widget/exam/not_arranged_info.dart';
@@ -25,7 +24,7 @@ class ExamScreen extends GetView<ExamControllers> {
 
   @override
   Widget build(BuildContext context) {
-    if (offline && controller.status == info_widget.ExamStatus.cache) {
+    if (offline && controller.status.value == ExamStatus.cache) {
       showToast(
         context: context,
         msg: FlutterI18n.translate(context, "exam.cache_hint"),
@@ -33,65 +32,114 @@ class ExamScreen extends GetView<ExamControllers> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(FlutterI18n.translate(context, "exam.title")),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.more_time),
-            onPressed: () => Get.to(() => NoArrangedInfo(
-              list: controller.data.toBeArranged,
-            )),
-          ),
-        ],
-      ),
-      body: Builder(builder: (context) {
-        if (controller.status == info_widget.ExamStatus.cache || 
-            controller.status == info_widget.ExamStatus.fetched) {
-          if (controller.data.subject.isNotEmpty) {
-            return TimelineWidget(
-              isTitle: [
-                true,
-                false,
-                true,
-                false,
-                if (controller.isDisQualified.isNotEmpty) ...[true, false],
-              ],
-              children: [
-                TimelineTitle(
-                  title: FlutterI18n.translate(context, "exam.not_finished"),
+        appBar: AppBar(
+          title: Text(FlutterI18n.translate(
+            context,
+            "exam.title",
+          )),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.more_time),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => NoArrangedInfo(
+                    list: controller.data.toBeArranged,
+                  ),
                 ),
-                Builder(builder: (context) {
-                  final isNotFinished = controller.isNotFinished(time);
-                  if (isNotFinished.isNotEmpty) {
-                    return isNotFinished
+              ),
+            ),
+          ],
+        ),
+        body: Builder(builder: (context) {
+          if (controller.status.value == ExamStatus.cache || controller.status.value == ExamStatus.fetched) {
+            if (controller.data.subject.isNotEmpty) {
+              return TimelineWidget(
+                isTitle: [
+                  true,
+                  false,
+                  true,
+                  false,
+                  if (controller.isDisQualified.isNotEmpty) ...[true, false],
+                ],
+                children: [
+                  TimelineTitle(
+                    title: FlutterI18n.translate(
+                      context,
+                      "exam.not_finished",
+                    ),
+                  ),
+                  Builder(builder: (context) {
+                    final isNotFinished = controller.isNotFinished(time);
+                    if (isNotFinished.isNotEmpty) {
+                      return isNotFinished
+                          .map((e) => ExamInfoCard(toUse: e))
+                          .toList()
+                          .toColumn();
+                    } else {
+                      return ExamInfoCard(
+                        title: FlutterI18n.translate(
+                          context,
+                          "exam.all_finished",
+                        ),
+                      );
+                    }
+                  }),
+                  if (controller.isDisQualified.isNotEmpty)
+                    TimelineTitle(
+                      title: FlutterI18n.translate(
+                        context,
+                        "exam.unable_to_exam",
+                      ),
+                    ),
+                  if (controller.isDisQualified.isNotEmpty)
+                    controller.isDisQualified
                         .map((e) => ExamInfoCard(toUse: e))
                         .toList()
-                        .toColumn();
-                  } else {
-                    return ExamInfoCard(
-                      title: FlutterI18n.translate(context, "exam.all_finished"),
-                    );
-                  }
-                }),
-                if (controller.isDisQualified.isNotEmpty) ...[
+                        .toColumn(),
                   TimelineTitle(
-                    title: FlutterI18n.translate(context, "exam.unable_to_exam"),
+                    title: FlutterI18n.translate(
+                      context,
+                      "exam.finished",
+                    ),
                   ),
-                  controller.isDisQualified
-                      .map((e) => ExamInfoCard(toUse: e))
-                      .toList()
-                      .toColumn(),
+                  Builder(builder: (context) {
+                    final isFinished = controller.isFinished(time);
+                    if (isFinished.isNotEmpty) {
+                      return isFinished
+                          .map((e) => ExamInfoCard(toUse: e))
+                          .toList()
+                          .toColumn();
+                    } else {
+                      return ExamInfoCard(
+                        title: FlutterI18n.translate(
+                          context,
+                          "exam.none_finished",
+                        ),
+                      );
+                    }
+                  }),
                 ],
-              ],
+              ).safeArea();
+            } else {
+              return EmptyListView(
+                type: Type.reading,
+                text: FlutterI18n.translate(
+                  context,
+                  "exam.no_exam_arrangement",
+                ),
+              );
+            }
+          } else if (controller.status.value == ExamStatus.error) {
+            return Center(
+              child: Obx(() => Text(FlutterI18n.translate(
+                context,
+                controller.error.toString(),
+              ))),
             );
+          } else {
+            return const Center(child: CircularProgressIndicator());
           }
-          return EmptyListView(
-            type: Type.reading,
-            text: FlutterI18n.translate(context, "exam.no_exam"),
-          );
-        }
-        return const Center(child: CircularProgressIndicator());
-      }),
-    );
+        }),
+      );
   }
 }

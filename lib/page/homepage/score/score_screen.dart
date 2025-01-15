@@ -38,10 +38,12 @@ class _ScoreInfoCard extends GetView<ScoreController> {
             context: context,
             builder: (context) => ScoreComposeCard(
               score: controller.scores.value[mark],
-              detail: controller.scoreSession.getDetail(
-                controller.scores.value[mark].classID,
-                controller.scores.value[mark].semesterCode,
-              ),
+              detail: controller.scores.value[mark].classID != null && 
+                      controller.scores.value[mark].semesterCode != null ? 
+                      controller.getScoreDetail(
+                        controller.scores.value[mark].classID!,
+                        controller.scores.value[mark].semesterCode!,
+                      ) : Future.value([]),
             ),
           );
         }
@@ -98,8 +100,6 @@ class ScoreScreen extends GetView<ScoreController> {
 
   @override
   Widget build(BuildContext context) {
-    final filteredScores = controller.filteredScores;
-
     return Scaffold(
       appBar: AppBar(
         title: Text(FlutterI18n.translate(context, "score.score_page.title")),
@@ -114,18 +114,73 @@ class ScoreScreen extends GetView<ScoreController> {
       body: Column(
         children: [
           _buildFilterBar(context),
-          if (filteredScores.isEmpty)
-            EmptyListView(
-              text: FlutterI18n.translate(context, "score.score_page.no_record"),
-              type: Type.reading,
-            ).expanded()
-          else
-            _buildScoreList(filteredScores).expanded(),
+          Obx(() {
+            final filteredScores = controller.filteredScores;
+            return filteredScores.isEmpty
+                ? EmptyListView(
+                    text: FlutterI18n.translate(
+                        context, "score.score_page.no_record"),
+                    type: Type.reading,
+                  ).expanded()
+                : _buildScoreList(filteredScores).expanded();
+          }),
         ],
       ),
-      bottomNavigationBar: controller.isSelectMode.value
-          ? _buildBottomBar(context)
-          : null,
+      bottomNavigationBar: Obx(() => Visibility(
+        visible: controller.isSelectMode.value,
+        child: BottomAppBar(
+          height: 136,
+          elevation: 5.0,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FilledButton(
+                    onPressed: () => controller.setScoreChoiceState(ChoiceState.all),
+                    child: Text(FlutterI18n.translate(
+                      context,
+                      "score.score_page.select_all",
+                    )),
+                  ),
+                  const SizedBox(width: 12),
+                  FilledButton(
+                    onPressed: () => controller.setScoreChoiceState(ChoiceState.none),
+                    child: Text(FlutterI18n.translate(
+                      context,
+                      "score.score_page.select_nothing",
+                    )),
+                  ),
+                  const SizedBox(width: 12),
+                  FilledButton(
+                    onPressed: () => controller.setScoreChoiceState(ChoiceState.original),
+                    child: Text(FlutterI18n.translate(
+                      context,
+                      "score.score_page.reset_select",
+                    )),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(controller.bottomInfo(context)),
+                  FloatingActionButton(
+                    elevation: 0.0,
+                    highlightElevation: 0.0,
+                    focusElevation: 0.0,
+                    disabledElevation: 0.0,
+                    onPressed: () => _showScoreInfoDialog(context),
+                    child: const Icon(Icons.panorama_fisheye),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      )),
     );
   }
 
@@ -145,16 +200,16 @@ class ScoreScreen extends GetView<ScoreController> {
             controller.filterScores();
           },
         ).padding(bottom: 8),
-        FilledButton(
+        Obx(() => FilledButton(
           onPressed: () async {
             await showDialog<int>(
               context: context,
               builder: (context) => ColumnChooseDialog(
-                chooseList: ["score.all_semester", ...controller.semester].toList(),
+                chooseList: ["score.all_semester", ...controller.semesters].toList(),
               ),
             ).then((value) {
               if (value != null) {
-                controller.selectedSemester.value = ["", ...controller.semester].toList()[value];
+                controller.chosenSemester.value = ["", ...controller.semesters].toList()[value];
               }
             });
           },
@@ -162,16 +217,16 @@ class ScoreScreen extends GetView<ScoreController> {
             context,
             "score.chosen_semester",
             translationParams: {
-              "chosen": (controller.selectedSemester.value == ""
+              "chosen": (controller.chosenSemester.value == ""
                   ? FlutterI18n.translate(
                       context,
                       "score.all_semester",
                     )
-                  : controller.selectedSemester.value ?? "").toString(),
+                  : controller.chosenSemester.value).toString(),
             },
           )),
-        ).padding(right: 8),
-        FilledButton(
+        )).padding(right: 8),
+        Obx(() => FilledButton(
           onPressed: () async {
             await showDialog<int>(
               context: context,
@@ -180,7 +235,7 @@ class ScoreScreen extends GetView<ScoreController> {
               ),
             ).then((value) {
               if (value != null) {
-                controller.selectedStatus.value = ["", ...controller.statuses].toList()[value];
+                controller.chosenStatus.value = ["", ...controller.statuses].toList()[value];
               }
             });
           },
@@ -188,15 +243,15 @@ class ScoreScreen extends GetView<ScoreController> {
             context,
             "score.chosen_type",
             translationParams: {
-              "type": (controller.selectedStatus.value == ""
+              "type": (controller.chosenStatus.value == ""
                   ? FlutterI18n.translate(
                       context,
                       "score.all_type",
                     )
-                  : controller.selectedStatus.value ?? "").toString(),
+                  : controller.chosenStatus.value).toString(),
             },
           )),
-        ),
+        )),
       ],
     ).padding(horizontal: 14, top: 8, bottom: 6)
      .constrained(maxWidth: 480);
@@ -210,7 +265,7 @@ class ScoreScreen extends GetView<ScoreController> {
         padding: const EdgeInsets.symmetric(
           horizontal: 8,
         ),
-        crossAxisCount: constraints.maxWidth ~/ 480,
+        crossAxisCount: (constraints.maxWidth ~/ 480).clamp(1, double.infinity).toInt(),
         mainAxisSpacing: 4,
         crossAxisSpacing: 4,
         itemBuilder: (context, index) => _ScoreInfoCard(
@@ -221,79 +276,38 @@ class ScoreScreen extends GetView<ScoreController> {
     );
   }
 
-  Widget _buildBottomBar(BuildContext context) {
-    return BottomAppBar(
-      height: 136,
-      elevation: 5.0,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FilledButton(
-                onPressed: () => controller.setScoreChoiceState(ChoiceState.all),
-                child: Text(FlutterI18n.translate(
-                  context,
-                  "score.score_page.select_all",
-                ).toString()),
-              ),
-              const SizedBox(width: 12),
-              FilledButton(
-                onPressed: () => controller.setScoreChoiceState(ChoiceState.none),
-                child: Text(FlutterI18n.translate(
-                  context,
-                  "score.score_page.select_nothing",
-                ).toString()),
-              ),
-              const SizedBox(width: 12),
-              FilledButton(
-                onPressed: () => controller.setScoreChoiceState(ChoiceState.original),
-                child: Text(FlutterI18n.translate(
-                  context,
-                  "score.score_page.reset_select",
-                ).toString()),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(controller.bottomInfo(context)),
-              FloatingActionButton(
-                elevation: 0.0,
-                highlightElevation: 0.0,
-                focusElevation: 0.0,
-                disabledElevation: 0.0,
-                onPressed: () => _showScoreInfoDialog(context),
-                child: const Icon(Icons.panorama_fisheye),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
   Future<void> _showScoreInfoDialog(BuildContext context) async {
     await Get.dialog(
-      AlertDialog(
-        title: Text(FlutterI18n.translate(
-          context,
-          "score.score_choice.sum_dialog_title",
-        ).toString()),
-        content: Text(FlutterI18n.translate(
-          context,
-          "score.score_choice.sum_dialog_content",
-        ).toString()),
-        actions: [
-          TextButton(
-            child: Text(FlutterI18n.translate(context, "confirm").toString()),
-            onPressed: () => Get.back(),
+        AlertDialog(
+          title: Text(FlutterI18n.translate(
+            context,
+            "score.score_choice.sum_dialog_title",
+          )),
+          content: Text(
+            FlutterI18n.translate(
+              context,
+              "score.score_choice.sum_dialog_content",
+              translationParams: {
+                "gpa_all": controller.evalAvg(true, isGPA: true).toStringAsFixed(3),
+                "avg_all": controller.evalAvg(true).toStringAsFixed(2),
+                "credit_all": controller.evalCredit(true).toStringAsFixed(2),
+                "unpassed": controller.unPassed.isEmpty
+                    ? FlutterI18n.translate(context, "score.all_passed")
+                    : controller.unPassed,
+                "not_core_credit": controller.notCoreClass.toString(),
+              },
+            ),
           ),
-        ],
-      ),
-    );
+          actions: <Widget>[
+            TextButton(
+              child: Text(FlutterI18n.translate(
+                context,
+                "confirm",
+              )),
+              onPressed: () => Get.back(),
+            ),
+          ],
+        ),
+      );
   }
 }

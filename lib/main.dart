@@ -46,20 +46,9 @@ class _MyAppState extends State<MyApp> {
     if (Platform.isIOS) HomeWidget.setAppGroupId(preference.appId);
     //HomeWidget.registerInteractivityCallback(backgroundCallback);
 
-    // Move network request to a safer location and add error handling
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _initializeNetwork();
-    });
+    IDSSession().dio.get("https://www.xidian.edu.cn");
   }
 
-  Future<void> _initializeNetwork() async {
-    try {
-      await IDSSession().dio.get("https://www.xidian.edu.cn");
-    } catch (e) {
-      // Handle network error gracefully
-      debugPrint('Network initialization failed: $e');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
