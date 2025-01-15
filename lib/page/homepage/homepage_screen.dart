@@ -141,18 +141,8 @@ class HomePageScreen extends GetView<HomePageController> {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      SmallFunctionCard(
-                        onTap: () {
-                          Get.toNamed(
-                            Routes.HOME + Routes.SCORE,
-                            preventDuplicates: true,
-                            id: null,
-                          );
-                        },
-                          icon: Icons.grading_rounded,
-                          nameKey: "homepage.toolbox.score",
-                        ),]
-                      //controller.smallFunction,
+                      ...controller.smallFunction,
+                    ],
                   ),
                 ].toColumn().padding(
                       vertical: 8,

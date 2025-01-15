@@ -24,7 +24,7 @@ class ScoreCard extends StatelessWidget {
             context: context,
             msg: FlutterI18n.translate(
               context,
-              "homepage.toolbox.score_cannot_reach",
+              "score.score_info_card.failed",
             ),
           );
         } else {

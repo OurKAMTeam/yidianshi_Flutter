@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
+import 'package:get/get.dart'; // Add this line
 
 class ElectricityAccountDialog extends StatelessWidget {
   final TextEditingController _controller =
@@ -44,7 +45,7 @@ class ElectricityAccountDialog extends StatelessWidget {
             "cancel",
           )),
           onPressed: () {
-            Navigator.pop(context);
+            Get.back();
           },
         ),
         TextButton(
@@ -58,7 +59,7 @@ class ElectricityAccountDialog extends StatelessWidget {
                 preference.Preference.dorm,
                 _controller.text,
               );
-              Navigator.of(context).pop();
+              Get.back();
             } else {
               showToast(
                 context: context,

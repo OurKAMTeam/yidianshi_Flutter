@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
+import 'package:get/get.dart';
 
 class ElectricityPasswordDialog extends StatefulWidget {
   const ElectricityPasswordDialog({super.key});
@@ -61,9 +62,7 @@ class _ElectricityPasswordDialogState extends State<ElectricityPasswordDialog> {
               "cancel",
             ),
           ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => Get.back(),
         ),
         TextButton(
           child: Text(
@@ -86,7 +85,7 @@ class _ElectricityPasswordDialogState extends State<ElectricityPasswordDialog> {
               preference.Preference.electricityPassword,
               _sportPasswordController.text,
             );
-            Navigator.of(context).pop();
+            Get.back();
           },
         ),
       ],

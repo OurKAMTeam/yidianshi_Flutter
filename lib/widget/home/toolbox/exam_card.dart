@@ -9,10 +9,8 @@ import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:get/get.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:yidianshi/widget/home/info_widget/controller/exam_controller.dart';
-import 'package:yidianshi/page/exam/exam_info_window.dart';
-import 'package:yidianshi/widget/home/refresh.dart';
+import 'package:yidianshi/routes/routes.dart';
 import 'package:yidianshi/widget/home/small_function_card.dart';
-import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
 import 'package:yidianshi/xd_api/base/ids_session.dart';
 
 class ExamCard extends StatelessWidget {
@@ -24,7 +22,12 @@ class ExamCard extends StatelessWidget {
       builder: (c) => SmallFunctionCard(
         onTap: () async {
           if (c.status == ExamStatus.cache || c.status == ExamStatus.fetched) {
-            context.pushReplacement(ExamInfoWindow(time: updateTime));
+            Get.toNamed(
+              Routes.HOME + Routes.EXAM,
+              preventDuplicates: true,
+              id: null,
+            );
+            //context.pushReplacement(ExamInfoWindow(time: updateTime));
           } else if (c.status != ExamStatus.error) {
             showToast(
               context: context,

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:yidianshi/model/message/message.dart';
+import 'package:get/get.dart'; // Add this line
 
 class UpdateDialog extends StatelessWidget {
   final UpdateMessage updateMessage;
@@ -35,7 +36,7 @@ class UpdateDialog extends StatelessWidget {
       content: Text(text),
       actions: [
         TextButton(
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Get.back(),
           child: Text(FlutterI18n.translate(
             context,
             "setting.update_dialog.not_now",

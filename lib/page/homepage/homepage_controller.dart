@@ -10,7 +10,7 @@ import 'package:yidianshi/widget/home/toolbox/exam_card.dart';
 import 'package:yidianshi/widget/home/toolbox/experiment_card.dart';
 import 'package:yidianshi/widget/home/toolbox/score_card.dart';
 import 'package:yidianshi/widget/home/toolbox/sport_card.dart';
-import 'package:yidianshi/widget/home/toolbox/toolbox_card.dart';
+//import 'package:yidianshi/widget/home/toolbox/toolbox_card.dart';
 
 
 class HomePageController extends GetxController {
@@ -18,20 +18,20 @@ class HomePageController extends GetxController {
 
   final List<Widget> children = const [
     ElectricityCard(),
-    LibraryCard(),
+    LibraryCard(), // complete
     SchoolCardInfoCard(),
   ];
 
   final List<Widget> smallFunction = [
-    const ScoreCard(),
-    const ExamCard(),
-    const EmptyClassroomCard(),
+    const ScoreCard(),  // complete
+    const ExamCard(),  // complete
+    const EmptyClassroomCard(), // complete
     const SchoolnetCard(),
     if (prefs.getBool(prefs.Preference.role) == false) ...[
-      const ExperimentCard(),
-      const SportCard(),
+      const ExperimentCard(), // complete
+      const SportCard(), // complete
     ],
-    const ToolboxCard(),
+    //const ToolboxCard(),
   ];
 
   String get timeString {

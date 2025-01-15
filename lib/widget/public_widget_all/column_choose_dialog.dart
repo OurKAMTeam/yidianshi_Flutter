@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:get/get.dart';
 
 /// ColumnChooseDialog is a dialog with a [chooseList] to select, return the index in the [chooseList].
 class ColumnChooseDialog extends StatelessWidget {
@@ -23,7 +24,7 @@ class ColumnChooseDialog extends StatelessWidget {
       children: List.generate(
         chooseList.length,
         (index) => SimpleDialogOption(
-          onPressed: () => Navigator.of(context).pop<int>(index),
+          onPressed: () => Get.back<int>(result: index),
           child: ListTile(
             title: Text(FlutterI18n.translate(
               context,

@@ -35,7 +35,7 @@ class LoginWindow extends GetView<LoginController> {
       );
 
   Widget _contentColumn(BuildContext context) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
           TextField(
             controller: controller.idsAccountController,
@@ -59,7 +59,7 @@ class LoginWindow extends GetView<LoginController> {
               ),
             ),
           ).center()),
-          SizedBox(height: Get.width / Get.height > 1.0 ? 16.0 : 64.0),
+          SizedBox(height: Get.width / Get.height > 1.0 ? 16.0 : 32.0),
           Obx(() => FilledButton(
             style: FilledButton.styleFrom(
               minimumSize: const Size(double.infinity, 56),
@@ -81,32 +81,62 @@ class LoginWindow extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
+    final isLandscape = Get.width / Get.height > 1.0;
+    
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(
-          left: Get.width / Get.height > 1.0 ? Get.width * 0.2 : widthOfSquare,
-          right: Get.width / Get.height > 1.0 ? Get.width * 0.2 : widthOfSquare,
-          top: kToolbarHeight,
-        ),
-        child: Get.width / Get.height > 1.0
-            ? Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const AppIconWidget(size: 64).gestures(
-                    onTap: () => Get.toNamed('/about'),
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        children: [
+          // Background and Logo
+          Positioned.fill(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: isLandscape ? Get.width * 0.2 : widthOfSquare,
+              ),
+              child: isLandscape
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const AppIconWidget(size: 64).gestures(
+                        onTap: () => Get.toNamed('/about'),
+                      ),
+                      const SizedBox(width: 48),
+                      const Spacer(),
+                    ],
+                  )
+                : Column(
+                    children: [
+                      SizedBox(height: kToolbarHeight),
+                      const AppIconWidget(size: 64).gestures(
+                        onTap: () => Get.toNamed('/about'),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 48),
-                  Expanded(child: _contentColumn(context)),
-                ],
-              )
-            : Column(
-                children: [
-                  const AppIconWidget(size: 64)
-                      .padding(vertical: kToolbarHeight * 0.75)
-                      .gestures(onTap: () => Get.toNamed('/about')),
-                  _contentColumn(context),
-                ],
-              ).center(),
+            ),
+          ),
+          
+          // Login Form
+          Positioned.fill(
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: isLandscape ? Get.width * 0.2 : widthOfSquare,
+                right: isLandscape ? Get.width * 0.2 : widthOfSquare,
+                top: isLandscape ? kToolbarHeight : kToolbarHeight + 128,
+              ),
+              child: isLandscape
+                ? Row(
+                    children: [
+                      const Spacer(flex: 2),
+                      Expanded(
+                        flex: 3,
+                        child: _contentColumn(context),
+                      ),
+                    ],
+                  )
+                : _contentColumn(context),
+            ),
+          ),
+        ],
       ),
     );
   }

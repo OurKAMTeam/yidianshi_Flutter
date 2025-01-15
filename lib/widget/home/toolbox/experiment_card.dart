@@ -8,7 +8,7 @@ import 'package:yidianshi/widget/home/info_widget/controller/experiment_controll
 import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
 import 'package:yidianshi/page/setting/dialogs/experiment_password_dialog.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
-import 'package:yidianshi/page/experiment/experiment_window.dart';
+import 'package:yidianshi/page/homepage/experiment/experiment_window.dart';
 import 'package:yidianshi/widget/home/small_function_card.dart';
 
 class ExperimentCard extends StatelessWidget {

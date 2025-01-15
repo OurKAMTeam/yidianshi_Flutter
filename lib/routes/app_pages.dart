@@ -3,12 +3,20 @@ import 'package:yidianshi/page/home/home_binding.dart';
 import 'package:yidianshi/page/home/home_screen.dart';
 import 'package:yidianshi/page/login/login_binding.dart';
 import 'package:yidianshi/page/login/login_window.dart';
-import 'package:yidianshi/page/score/score_binding.dart';
-import 'package:yidianshi/page/score/score_screen.dart';
-import 'package:yidianshi/page/testpage/testpage_binding.dart';
-import 'package:yidianshi/page/testpage/testpage_screen.dart';
-// import 'package:yidianshi/shared/utils/preference.dart' as preference;
-// import 'package:yidianshi/xd_api/base/ids_session.dart';
+import 'package:yidianshi/page/homepage/score/score_binding.dart';
+import 'package:yidianshi/page/homepage/score/score_screen.dart';
+import 'package:yidianshi/page/homepage/testpage/testpage_binding.dart';
+import 'package:yidianshi/page/homepage/testpage/testpage_screen.dart';
+import 'package:yidianshi/page/homepage/exam/exam_binding.dart';
+import 'package:yidianshi/page/homepage/exam/exam_screen.dart';
+import 'package:yidianshi/page/homepage/empty_classroom/empty_classroom_binding.dart';
+import 'package:yidianshi/page/homepage/empty_classroom/empty_classroom_screen.dart';
+import 'package:yidianshi/page/homepage/experiment/experiment_binding.dart';
+import 'package:yidianshi/page/homepage/experiment/experiment_window.dart';
+import 'package:yidianshi/page/homepage/sport/sport_binding.dart';
+import 'package:yidianshi/page/homepage/sport/sport_window.dart';
+import 'package:yidianshi/page/homepage/library/library_window.dart';
+import 'package:yidianshi/page/homepage/library/library_binding.dart';
 
 part 'app_routes.dart';
 
@@ -27,9 +35,34 @@ class AppPages {
           binding: ScoreBinding(),
         ),
         GetPage(
+          name: Routes.EXAM,
+          page: () => ExamScreen(time: DateTime.now()),
+          binding: ExamBinding(),
+        ),
+        GetPage(
+          name: Routes.EMPTY_CLASSROOM,
+          page: () => const EmptyClassroomScreen(),
+          binding: EmptyClassroomBinding(),
+        ),
+        GetPage(
           name: Routes.TESTPAGE,
           page: () => const TestPageScreen(),
           binding: TestPageBinding(),
+        ),
+        GetPage(
+          name: Routes.EXPERIMENT,
+          page: () => const ExperimentWindow(),
+          binding: ExperimentBinding(),
+        ),
+        GetPage(
+          name: Routes.SPORT,
+          page: () => const SportWindow(),
+          binding: SportBinding(),
+        ),
+        GetPage(
+          name: Routes.LIBRARY,
+          page: () => const LibraryWindow(),
+          binding: LibraryBinding(),
         ),
       ]),
     GetPage(
@@ -37,8 +70,6 @@ class AppPages {
       page: () => const LoginWindow(),
       binding: LoginBinding(),
     ),
-            
-
   ];
 
   // static String determineInitialRoute() {

@@ -15,6 +15,7 @@ import 'package:yidianshi/shared/utils/logger.dart';
 import 'package:yidianshi/xd_api/base/network_session.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 
+
 enum IDSLoginState {
   none,
   requesting,
@@ -43,17 +44,16 @@ class IDSSession extends NetworkSession {
             "[IDSSession][OfflineCheckInspector]"
             "Offline status: $offline",
           );
-          if (offline) {
+          // if (offline) {
+          //   handler.reject(
+          //     DioException.requestCancelled(
+          //       reason: "Offline mode, all ids function unuseable.",
+          //       requestOptions: options,
+          //     ),
+          //   );
+          // } else {
             handler.next(options);
-            handler.reject(
-              DioException.requestCancelled(
-                reason: "Offline mode, all ids function unuseable.",
-                requestOptions: options,
-              ),
-            );
-          } else {
-            handler.next(options);
-          }
+          //}
         },
       ),
     );

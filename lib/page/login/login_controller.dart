@@ -93,15 +93,7 @@ class LoginController extends GetxController {
             SliderCaptchaClientProvider(cookie: cookieStr).solve(null),
       );
 
-      pd.update(value: 50, msg: "正在获取个人信息");
-      bool isPostGraduate = await ses.checkWhetherPostgraduate();
-      if (isPostGraduate) {
-        await PersonalInfoSession().getInformationFromYjspt();
-      } else {
-        await PersonalInfoSession().getInformationEhall();
-      }
-
-      pd.update(value: 75, msg: "正在保存信息");
+            pd.update(value: 75, msg: "正在保存账号密码");
       await preference.setString(
         preference.Preference.idsAccount,
         idsAccountController.text,
@@ -110,6 +102,16 @@ class LoginController extends GetxController {
         preference.Preference.idsPassword,
         idsPasswordController.text,
       );
+
+      pd.update(value: 50, msg: "正在获取个人信息");
+      bool isPostGraduate = await ses.checkWhetherPostgraduate();
+      if (isPostGraduate) {
+        await PersonalInfoSession().getInformationFromYjspt();
+      } else {
+        await PersonalInfoSession().getInformationEhall();
+      }
+
+
 
       pd.close();
       isLoading.value = false;

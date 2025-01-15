@@ -16,11 +16,11 @@ import 'package:yidianshi/xd_api/base/network_session.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 
 enum ExperimentStatus {
+  none,
   cache,
   fetching,
   fetched,
   error,
-  none,
 }
 
 class ExperimentController extends GetxController {

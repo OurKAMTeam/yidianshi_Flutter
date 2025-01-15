@@ -95,9 +95,9 @@ class LibrarySession extends IDSSession {
         );
   }
 
-  Future<void> getBorrowList() async {
+  Future<List<BorrowData>> getBorrowList() async {
     if (state.value == SessionState.fetching) {
-      return;
+      return [];
     }
     log.info(
       "[LibrarySession][getBorrowList] "
@@ -141,9 +141,14 @@ class LibrarySession extends IDSSession {
         (index) => BorrowData.fromJson(rawData[index]),
       ));
       state.value = SessionState.fetched;
+      return List<BorrowData>.generate(
+        rawData.length,
+        (index) => BorrowData.fromJson(rawData[index]),
+      );
     } catch (e) {
       error.value = e.toString();
       state.value = SessionState.error;
+      return [];
     }
   }
 

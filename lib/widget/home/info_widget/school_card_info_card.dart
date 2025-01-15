@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:yidianshi/widget/home/main_page_card.dart';
 import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
-import 'package:yidianshi/page/schoolcard/school_card_window.dart';
+import 'package:yidianshi/page/homepage/schoolcard/school_card_window.dart';
 import 'package:yidianshi/xd_api/base/network_session.dart';
 import 'package:yidianshi/xd_api/tool/school_card_session.dart'
     as school_card_session;
@@ -83,27 +83,27 @@ class SchoolCardInfoCard extends StatelessWidget {
               children: [
                 if (school_card_session.isInit.value ==
                     SessionState.fetched) ...[
-                  if (school_card_session.money.value
+                  if (school_card_session.SchoolCardSession.money.value
                       .contains(RegExp(r'[0-9]')))
                     TextSpan(
                       text: FlutterI18n.translate(
                           context, "homepage.school_card_info_card.balance",
                           translationParams: {
                             "amount": double.parse(
-                                      school_card_session.money.value,
+                                      school_card_session.SchoolCardSession.money.value,
                                     ) >=
                                     10
-                                ? double.parse(school_card_session.money.value)
+                                ? double.parse(school_card_session.SchoolCardSession.money.value)
                                     .truncate()
                                     .toString()
-                                : school_card_session.money.value,
+                                : school_card_session.SchoolCardSession.money.value,
                           }),
                     )
                   else
                     TextSpan(
                       text: FlutterI18n.translate(
                         context,
-                        school_card_session.money.value,
+                        school_card_session.SchoolCardSession.money.value,
                       ),
                     ),
                 ] else

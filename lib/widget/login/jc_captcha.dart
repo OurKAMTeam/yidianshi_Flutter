@@ -73,14 +73,14 @@ class SliderCaptchaClientProvider {
 
     log.info("$retryCount failures, fallback to user input.");
     // fallback
-    if (context != null && context.mounted) {
-      await Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => CaptchaWidget(provider: this),
-        ),
-      );
-      return true; // If we get here, the user completed the captcha
-    }
+    // if (context != null && context.mounted) {
+    //   await Navigator.of(context).push(
+    //     MaterialPageRoute(
+    //       builder: (context) => CaptchaWidget(provider: this),
+    //     ),
+    //   );
+    //   return true; // If we get here, the user completed the captcha
+    // }
     throw CaptchaSolveFailedException();
   }
 
@@ -209,116 +209,116 @@ class SliderCaptchaClientProvider {
   }
 }
 
-class CaptchaWidget extends StatefulWidget {
-  static double deviation = 5;
+// class CaptchaWidget extends StatefulWidget {
+//   static double deviation = 5;
 
-  final SliderCaptchaClientProvider provider;
+//   final SliderCaptchaClientProvider provider;
 
-  const CaptchaWidget({
-    super.key,
-    required this.provider,
-  });
+//   const CaptchaWidget({
+//     super.key,
+//     required this.provider,
+//   });
 
-  @override
-  State<CaptchaWidget> createState() => _CaptchaWidgetState();
-}
+//   @override
+//   State<CaptchaWidget> createState() => _CaptchaWidgetState();
+// }
 
-class _CaptchaWidgetState extends State<CaptchaWidget> {
-  late Future<SliderCaptchaClientProvider> provider;
+// class _CaptchaWidgetState extends State<CaptchaWidget> {
+//   late Future<SliderCaptchaClientProvider> provider;
 
-  /// 滑块的当前位置。
-  double _sliderValue = 0.0;
+//   /// 滑块的当前位置。
+//   double _sliderValue = 0.0;
 
-  /// 滑到哪里了
-  final _offsetValue = 0;
+//   /// 滑到哪里了
+//   final _offsetValue = 0;
 
-  @override
-  void initState() {
-    updateProvider();
-    super.initState();
-  }
+//   @override
+//   void initState() {
+//     updateProvider();
+//     super.initState();
+//   }
 
-  Future<void> updateProvider() async {
-    _sliderValue = 0;
-    provider = widget.provider.updatePuzzle().then((value) => widget.provider);
-  }
+//   Future<void> updateProvider() async {
+//     _sliderValue = 0;
+//     provider = widget.provider.updatePuzzle().then((value) => widget.provider);
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(FlutterI18n.translate(
-          context,
-          "login.slider_title",
-        )),
-      ),
-      body: FutureBuilder<SliderCaptchaClientProvider>(
-        future: provider,
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const Center(child: CircularProgressIndicator());
-          } else {
-            return Column(
-              //mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // 堆叠三层，背景图、裁剪的拼图
-                SizedBox(
-                  width: snapshot.data!.puzzleWidth,
-                  height: snapshot.data!.puzzleHeight,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      // 背景图层
-                      snapshot.data!.puzzleImage!.value,
-                      // 拼图层
-                      Positioned(
-                        left: _sliderValue * snapshot.data!.puzzleWidth -
-                            _offsetValue,
-                        child: snapshot.data!.pieceImage!.value,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: snapshot.data!.puzzleWidth,
-                  child: SliderTheme(
-                    data: SliderThemeData(
-                      thumbColor: Colors.white, // 滑块颜色为白色
-                      activeTrackColor: Colors.green[900], // 激活轨道颜色为深绿色
-                      inactiveTrackColor: Colors.green[900], // 非激活轨道颜色为深绿色
-                      trackHeight: 10.0, // 轨道高度
-                      thumbShape: const RoundSliderThumbShape(
-                        enabledThumbRadius: 10.0,
-                      ), // 滑块形状为圆形
-                    ),
-                    child: Slider(
-                      value: _sliderValue,
-                      onChanged: (value) {
-                        setState(() {
-                          _sliderValue = value;
-                          //print(_sliderValue * snapshot.data!.puzzleWidth);
-                        });
-                      },
-                      onChangeEnd: (value) async {
-                        bool result = await snapshot.data!.verify(_sliderValue);
-                        if (context.mounted) {
-                          result
-                              ? Navigator.of(context).pop()
-                              : setState(() {
-                                  updateProvider();
-                                });
-                        }
-                      },
-                    ),
-                  ),
-                ),
-              ],
-            ).center();
-          }
-        },
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(FlutterI18n.translate(
+//           context,
+//           "login.slider_title",
+//         )),
+//       ),
+//       body: FutureBuilder<SliderCaptchaClientProvider>(
+//         future: provider,
+//         builder: (context, snapshot) {
+//           if (!snapshot.hasData) {
+//             return const Center(child: CircularProgressIndicator());
+//           } else {
+//             return Column(
+//               //mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 // 堆叠三层，背景图、裁剪的拼图
+//                 SizedBox(
+//                   width: snapshot.data!.puzzleWidth,
+//                   height: snapshot.data!.puzzleHeight,
+//                   child: Stack(
+//                     alignment: Alignment.center,
+//                     children: [
+//                       // 背景图层
+//                       snapshot.data!.puzzleImage!.value,
+//                       // 拼图层
+//                       Positioned(
+//                         left: _sliderValue * snapshot.data!.puzzleWidth -
+//                             _offsetValue,
+//                         child: snapshot.data!.pieceImage!.value,
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//                 SizedBox(
+//                   width: snapshot.data!.puzzleWidth,
+//                   child: SliderTheme(
+//                     data: SliderThemeData(
+//                       thumbColor: Colors.white, // 滑块颜色为白色
+//                       activeTrackColor: Colors.green[900], // 激活轨道颜色为深绿色
+//                       inactiveTrackColor: Colors.green[900], // 非激活轨道颜色为深绿色
+//                       trackHeight: 10.0, // 轨道高度
+//                       thumbShape: const RoundSliderThumbShape(
+//                         enabledThumbRadius: 10.0,
+//                       ), // 滑块形状为圆形
+//                     ),
+//                     child: Slider(
+//                       value: _sliderValue,
+//                       onChanged: (value) {
+//                         setState(() {
+//                           _sliderValue = value;
+//                           //print(_sliderValue * snapshot.data!.puzzleWidth);
+//                         });
+//                       },
+//                       onChangeEnd: (value) async {
+//                         bool result = await snapshot.data!.verify(_sliderValue);
+//                         if (context.mounted) {
+//                           result
+//                               ? Navigator.of(context).pop()
+//                               : setState(() {
+//                                   updateProvider();
+//                                 });
+//                         }
+//                       },
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ).center();
+//           }
+//         },
+//       ),
+//     );
+//   }
+// }
 
 class CaptchaSolveFailedException implements Exception {}

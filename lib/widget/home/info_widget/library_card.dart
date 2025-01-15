@@ -11,7 +11,7 @@ import 'package:yidianshi/xd_api/base/network_session.dart';
 import 'package:yidianshi/xd_api/tool/library_session.dart'
     as borrow_info;
 import 'package:yidianshi/widget/home/main_page_card.dart';
-import 'package:yidianshi/page/library/library_window.dart';
+import 'package:yidianshi/page/homepage/library/library_window.dart';
 import 'package:yidianshi/xd_api/base/ids_session.dart';
 
 class LibraryCard extends StatelessWidget {

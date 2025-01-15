@@ -14,13 +14,13 @@ import 'package:yidianshi/xd_api/base/network_session.dart';
 import 'package:yidianshi/xd_api/base/ids_session.dart';
 
 Rx<SessionState> isInit = SessionState.none.obs;
-RxString money = "".obs;
 RxString errorSession = "".obs;
 
 class SchoolCardSession extends IDSSession {
   static String openid = "";
   static String virtualCardUrl = "";
   static String personalCenter = "";
+  static RxString money = "".obs;
 
   /*
   Future<Uint8List> getQRCode() async {
