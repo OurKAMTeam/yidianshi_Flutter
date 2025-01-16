@@ -8,9 +8,9 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/widget/public_widget_all/app_icon.dart';
 import 'package:yidianshi/widget/public_widget_all/re_x_card.dart';
-import 'package:yidianshi/page/setting/about_page/easter_egg_page.dart';
-import 'package:yidianshi/page/setting/about_page/developer_widget.dart';
-import 'package:yidianshi/page/setting/about_page/link_widget.dart';
+import 'package:yidianshi/page/setting_old/about_page/easter_egg_page.dart';
+import 'package:yidianshi/page/setting_old/about_page/developer_widget.dart';
+import 'package:yidianshi/page/setting_old/about_page/link_widget.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 
 class AboutPage extends StatefulWidget {

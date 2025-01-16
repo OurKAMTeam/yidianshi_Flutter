@@ -21,6 +21,18 @@ import 'package:yidianshi/page/homepage/classtable/classtable_binding.dart';
 import 'package:yidianshi/page/homepage/classtable/classtable_screen.dart';
 import 'package:yidianshi/page/homepage/classtable/add_page/add_class_screen.dart';
 import 'package:yidianshi/page/homepage/classtable/add_page/add_class_binding.dart';
+import 'package:yidianshi/page/setting/setting_binding.dart';
+import 'package:yidianshi/page/setting/setting_screen.dart';
+import 'package:yidianshi/page/setting/setting_sub/setting_sub_binding.dart';
+import 'package:yidianshi/page/setting/setting_sub/setting_sub_screen.dart';
+import 'package:yidianshi/page/setting/account/account_binding.dart';
+import 'package:yidianshi/page/setting/account/account_screen.dart';
+import 'package:yidianshi/page/setting/feedback/feedback_binding.dart';
+import 'package:yidianshi/page/setting/feedback/feedback_screen.dart';
+import 'package:yidianshi/page/setting/feedback/feedback_create/feedback_create_screen.dart';
+import 'package:yidianshi/page/setting/feedback/feedback_create/feedback_create_binding.dart';
+import 'package:yidianshi/page/setting/about/about_binding.dart';
+import 'package:yidianshi/page/setting/about/about_screen.dart';
 
 part 'app_routes.dart';
 
@@ -85,6 +97,41 @@ class AppPages {
       name: Routes.LOGIN,
       page: () => const LoginWindow(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: Routes.SETTING,
+      page: () => const SettingScreen(),
+      binding: SettingBinding(),
+      children: [
+        GetPage(
+          name: Routes.SETTING_SUB,
+          page: () => const SettingSubScreen(),
+          binding: SettingSubBinding(),
+        ),
+        GetPage(
+          name: Routes.ACCOUNT,
+          page: () => const AccountScreen(),
+          binding: AccountBinding(),
+        ),
+        GetPage(
+          name: Routes.FEEDBACK,
+          page: () => const FeedbackScreen(),
+          binding: FeedbackBinding(),
+          children: [
+            GetPage(
+              name: Routes.FEEDBACK_CREATE,
+              page: () => const FeedbackCreateScreen(),
+              binding: FeedbackCreateBinding(),
+            ),
+          ],
+        ),
+
+        GetPage(
+          name: Routes.ABOUT,
+          page: () => const AboutScreen(),
+          binding: AboutBinding(),
+        ),
+      ],
     ),
   ];
 

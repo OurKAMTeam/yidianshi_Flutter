@@ -5,42 +5,25 @@
 
 import 'dart:io';
 
+import 'package:yidianshi/widget/setting_old/dialogs/dialogs.dart';
+import 'package:yidianshi/widget/widget.dart';
+import 'package:yidianshi/widget/home/info_widget/controller/controller.dart';
+import 'package:yidianshi/shared/shared.dart';
+import 'package:yidianshi/shared/utils/preference.dart' as preference;
+import 'package:yidianshi/xd_api/base/network_session.dart';
+import 'package:yidianshi/xd_api/tool/classtable_session.dart';
+import 'package:yidianshi/xd_api/tool/score_session.dart';
+
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:talker_flutter/talker_flutter.dart';
-import 'package:yidianshi/widget/home/info_widget/controller/experiment_controller.dart';
-import 'package:yidianshi/widget/home/info_widget/classtable_card.dart';
-import 'package:yidianshi/widget/home/refresh.dart';
-import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
-import 'package:yidianshi/widget/public_widget_all/re_x_card.dart';
-import 'package:yidianshi/page/setting/dialogs/change_color_dialog.dart';
-import 'package:yidianshi/page/setting/dialogs/change_localization_dialog.dart';
-import 'package:yidianshi/page/setting/dialogs/electricity_account_dialog.dart';
-import 'package:yidianshi/page/setting/dialogs/schoolnet_password_dialog.dart';
-import 'package:yidianshi/page/setting/dialogs/update_dialog.dart';
-import 'package:yidianshi/shared/utils/localization.dart';
-import 'package:yidianshi/shared/utils/logger.dart';
-import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:get/get.dart';
 import 'package:restart_app/restart_app.dart';
 import 'package:sn_progress_dialog/progress_dialog.dart';
-import 'package:yidianshi/widget/home/info_widget/controller/classtable_controller.dart';
-import 'package:yidianshi/widget/home/info_widget/controller/exam_controller.dart';
-import 'package:yidianshi/widget/home/info_widget/controller/theme_controller.dart';
-import 'package:yidianshi/page/setting/about_page/about_page.dart';
-import 'package:yidianshi/page/setting/dialogs/experiment_password_dialog.dart';
-import 'package:yidianshi/xd_api/tool/message_session.dart';
-import 'package:yidianshi/shared/utils/pick_file.dart';
-import 'package:yidianshi/shared/utils/preference.dart' as preference;
-import 'package:yidianshi/page/setting/dialogs/electricity_password_dialog.dart';
-import 'package:yidianshi/page/setting/dialogs/sport_password_dialog.dart';
-import 'package:yidianshi/page/setting/dialogs/change_swift_dialog.dart';
-import 'package:yidianshi/xd_api/base/network_session.dart';
-import 'package:yidianshi/xd_api/tool/classtable_session.dart';
-import 'package:yidianshi/xd_api/tool/score_session.dart';
-import 'package:yidianshi/shared/common/themes/color_seed.dart';
+
 
 class SettingWindow extends StatefulWidget {
   const SettingWindow({super.key});
@@ -101,117 +84,6 @@ class _SettingWindowState extends State<SettingWindow> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text: Platform.isIOS || Platform.isMacOS
-                      ? "XDYou"
-                      : 'Traintime PDA',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const TextSpan(
-                  text: '\nWritten by BenderBlog Rodriguez and contributors',
-                ),
-              ],
-            ),
-          ).padding(horizontal: 8.0),
-          const SizedBox(height: 20),
-          ReXCard(
-              title: _buildListSubtitle(FlutterI18n.translate(
-                context,
-                "setting.about",
-              )),
-              remaining: const [],
-              bottomRow: Column(children: [
-                ListTile(
-                  title: Text(FlutterI18n.translate(
-                    context,
-                    "setting.about_this_program",
-                  )),
-                  subtitle: Text(
-                    FlutterI18n.translate(
-                      context,
-                      "setting.version",
-                      translationParams: {
-                        "version": "${preference.packageInfo.version}+"
-                            "${preference.packageInfo.buildNumber}"
-                      },
-                    ),
-                  ),
-                  onTap: () => context.pushReplacement(const AboutPage()),
-                  trailing: const Icon(Icons.navigate_next),
-                ),
-                const Divider(),
-                ListTile(
-                  title: Text(FlutterI18n.translate(
-                    context,
-                    "setting.check_update",
-                  )),
-                  subtitle: Obx(
-                    () => Text(
-                      FlutterI18n.translate(
-                        context,
-                        "setting.latest_version",
-                        translationParams: {
-                          "latest": updateMessage.value?.code ??
-                              FlutterI18n.translate(
-                                context,
-                                "setting.waiting",
-                              ),
-                        },
-                      ),
-                    ),
-                  ),
-                  onTap: () {
-                    showToast(
-                      context: context,
-                      msg: FlutterI18n.translate(
-                        context,
-                        "setting.fetching_update",
-                      ),
-                    );
-                    checkUpdate().then((value) async {
-                      if (context.mounted) {
-                        if ((value ?? false) && updateMessage.value != null) {
-                          await showDialog(
-                            context: context,
-                            builder: (context) => Obx(
-                              () => UpdateDialog(
-                                updateMessage: updateMessage.value!,
-                              ),
-                            ),
-                          );
-                        } else {
-                          showToast(
-                            context: context,
-                            msg: FlutterI18n.translate(
-                              context,
-                              value == null
-                                  ? "setting.current_testing"
-                                  : "setting.current_stable",
-                            ),
-                          );
-                        }
-                      }
-                    }, onError: (e, s) {
-                      if (context.mounted) {
-                        showToast(
-                          context: context,
-                          msg: FlutterI18n.translate(
-                            context,
-                            "setting.fetch_failed",
-                          ),
-                        );
-                      }
-                    });
-                  },
-                  trailing: const Icon(Icons.navigate_next),
-                ),
-              ])),
           ReXCard(
               title: _buildListSubtitle(FlutterI18n.translate(
                 context,
@@ -321,96 +193,6 @@ class _SettingWindowState extends State<SettingWindow> {
                       );
                     }),
               ])),
-          ReXCard(
-            title: _buildListSubtitle(FlutterI18n.translate(
-              context,
-              "setting.account_setting",
-            )),
-            remaining: const [],
-            bottomRow: Column(
-              children: [
-                if (!preference.getBool(preference.Preference.role)) ...[
-                  ListTile(
-                      title: Text(FlutterI18n.translate(
-                        context,
-                        "setting.sport_password_setting",
-                      )),
-                      trailing: const Icon(Icons.navigate_next),
-                      onTap: () {
-                        showDialog(
-                          barrierDismissible: false,
-                          context: context,
-                          builder: (context) => const SportPasswordDialog(),
-                        );
-                      }),
-                  const Divider(),
-                  ListTile(
-                      title: Text(FlutterI18n.translate(
-                        context,
-                        "setting.experiment_password_setting",
-                      )),
-                      trailing: const Icon(Icons.navigate_next),
-                      onTap: () {
-                        showDialog(
-                          barrierDismissible: false,
-                          context: context,
-                          builder: (context) =>
-                              const ExperimentPasswordDialog(),
-                        );
-                      }),
-                ] else ...[
-                  ListTile(
-                      title: Text(FlutterI18n.translate(
-                        context,
-                        "setting.electricity_account_setting",
-                      )),
-                      trailing: const Icon(Icons.navigate_next),
-                      onTap: () {
-                        showDialog(
-                          barrierDismissible: false,
-                          context: context,
-                          builder: (context) => ElectricityAccountDialog(),
-                        );
-                      }),
-                ],
-                const Divider(),
-                ListTile(
-                    title: Text(FlutterI18n.translate(
-                      context,
-                      "setting.electricity_password_setting",
-                    )),
-                    subtitle: Text(FlutterI18n.translate(
-                      context,
-                      "setting.electricity_password_description",
-                    )),
-                    trailing: const Icon(Icons.navigate_next),
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        barrierDismissible: false,
-                        builder: (context) => const ElectricityPasswordDialog(),
-                      );
-                    }),
-                const Divider(),
-                ListTile(
-                    title: Text(FlutterI18n.translate(
-                      context,
-                      "setting.schoolnet_password_setting",
-                    )),
-                    subtitle: Text(FlutterI18n.translate(
-                      context,
-                      "setting.schoolnet_password_description",
-                    )),
-                    trailing: const Icon(Icons.navigate_next),
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) => const SchoolNetPasswordDialog(),
-                      );
-                    }),
-              ],
-            ),
-          ),
           ReXCard(
             title: _buildListSubtitle(FlutterI18n.translate(
               context,

@@ -11,5 +11,11 @@ abstract class Routes {
   static const SPORT = '/sport';
   static const LIBRARY = '/library';
   static const CLASSTABLE = '/classtable';
-  static const ADD_CLASS = '/classtable/add';
+  static const ADD_CLASS = '/add';
+  static const SETTING = '/setting';
+  static const SETTING_SUB = '/setting_sub';
+  static const ACCOUNT = '/account';
+  static const FEEDBACK = '/feedback';
+  static const FEEDBACK_CREATE = '/create';
+  static const ABOUT = '/about';
 }

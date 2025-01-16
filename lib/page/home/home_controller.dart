@@ -22,7 +22,8 @@ import 'package:yidianshi/widget/widget.dart';
 import 'package:yidianshi/page/homepage/homepage_screen.dart';
 import 'package:yidianshi/page/post/post_screen.dart';
 import 'package:yidianshi/page/functions/functions_screen.dart';
-import 'package:yidianshi/page/setting/setting.dart';
+//import 'package:yidianshi/page/setting_old/setting.dart';
+import 'package:yidianshi/page/setting/setting_screen.dart';
 
 enum MainTabs { home, post, functions, setting }
 
@@ -33,7 +34,7 @@ class HomeController extends GetxController with WidgetsBindingObserver {
   late final homeTab = const HomePageScreen();
   late final postTab = const PostScreen();
   late final functionsTab = const FunctionsScreen();
-  late final settingTab = const SettingWindow();
+  late final settingTab = const SettingScreen();
 
   //ate PageController pageController;
   late StreamSubscription _intentSub;

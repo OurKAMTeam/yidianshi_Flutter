@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:yidianshi/widget/home/info_widget/controller/experiment_controller.dart';
 import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
-import 'package:yidianshi/page/setting/dialogs/experiment_password_dialog.dart';
+import 'package:yidianshi/widget/setting_old/dialogs/experiment_password_dialog.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 import 'package:yidianshi/page/homepage/experiment/experiment_window.dart';
 import 'package:yidianshi/widget/home/small_function_card.dart';

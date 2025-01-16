@@ -4,12 +4,8 @@
 // import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
-// import 'package:talker_flutter/talker_flutter.dart';
-import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
-import 'package:yidianshi/page/setting/dialogs/sport_password_dialog.dart';
-import 'package:yidianshi/page/homepage/sport/sport_window.dart';
+import 'package:yidianshi/widget/setting_old/dialogs/sport_password_dialog.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 import 'package:yidianshi/widget/home/small_function_card.dart';
 import 'package:get/get.dart';

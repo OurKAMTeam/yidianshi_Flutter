@@ -8,7 +8,7 @@ import 'package:ming_cute_icons/ming_cute_icons.dart';
 import 'package:sn_progress_dialog/progress_dialog.dart';
 import 'package:yidianshi/widget/home/small_function_card.dart';
 import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
-import 'package:yidianshi/page/setting/dialogs/schoolnet_password_dialog.dart';
+import 'package:yidianshi/widget/setting_old/dialogs/schoolnet_password_dialog.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 import 'package:yidianshi/widget/public_widget_all/captcha_input_dialog.dart';
 import 'package:yidianshi/xd_api/tool/schoolnet_session.dart';
