@@ -542,7 +542,7 @@ class _SettingWindowState extends State<SettingWindow> {
                             if (file.existsSync()) {
                               file.deleteSync();
                             }
-                            Get.find<ClassTableController>().updateClassTable();
+                            Get.find<ClassTableControllerMin>().updateClassTable();
                             showToast(
                               context: context,
                               msg: FlutterI18n.translate(
@@ -595,7 +595,7 @@ class _SettingWindowState extends State<SettingWindow> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Get.put(ClassTableController()).updateClassTable(
+                            Get.put(ClassTableControllerMin()).updateClassTable(
                               isForce: true,
                             );
                             Navigator.pop(context);
@@ -633,7 +633,7 @@ class _SettingWindowState extends State<SettingWindow> {
                       context: context,
                       builder: (context) => ChangeSwiftDialog(),
                     ).then((value) {
-                      Get.put(ClassTableController()).update();
+                      Get.put(ClassTableControllerMin()).update();
                       updateCurrentData();
                       setState(() {});
                     });

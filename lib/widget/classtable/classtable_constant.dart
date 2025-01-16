@@ -25,6 +25,9 @@ const changePageTime = 200;
 /// The height of the middle row.
 const midRowHeight = 54.0;
 
+/// The total number of weeks in a semester
+const int maxWeek = 20;
+
 String getWeekString(BuildContext context, int index) {
   List<String> weekList = [
     'monday',

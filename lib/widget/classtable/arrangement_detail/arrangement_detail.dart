@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: MPL-2.0 OR  Apache-2.0
 
 import 'package:flutter/material.dart';
-import 'package:yidianshi/page/homepage/classtable/arrangement_detail/arrangement_list.dart';
-import 'package:yidianshi/page/homepage/classtable/arrangement_detail/arrangement_detail_state.dart';
+import 'package:yidianshi/widget/classtable/arrangement_detail/arrangement_list.dart';
+import 'package:yidianshi/widget/classtable/arrangement_detail/arrangement_detail_state.dart';
 
 /// The class info of the period. This is an entry.
 class ArrangementDetail extends StatelessWidget {

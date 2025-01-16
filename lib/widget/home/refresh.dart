@@ -89,7 +89,7 @@ Future<void> update({
         await c.get();
       }),
       Future(() async {
-        final c = Get.put(ClassTableController());
+        final c = Get.put(ClassTableControllerMin());
         await c.updateClassTable();
       }),
       Future(() async {
@@ -116,7 +116,7 @@ void updateCurrentData() {
     "[updateCurrentData]"
     "Updating current data. ${arrangementState.value}",
   );
-  final classTableController = Get.put(ClassTableController());
+  final classTableController = Get.put(ClassTableControllerMin());
   final examController = Get.put(ExamController());
   final experimentController = Get.put(ExperimentController());
 

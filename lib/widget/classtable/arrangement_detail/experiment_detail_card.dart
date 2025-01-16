@@ -3,16 +3,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
-import 'package:yidianshi/model/xidian_ids/exam.dart';
-import 'package:yidianshi/page/homepage/classtable/arrangement_detail/custom_list_tile.dart';
+import 'package:yidianshi/model/xidian_ids/experiment.dart';
+import 'package:yidianshi/widget/classtable/arrangement_detail/custom_list_tile.dart';
 
 /// A dialog/card shows the exam detail.
-class ExamDetailCard extends StatelessWidget {
-  final Subject subject;
+class ExperimentDetailCard extends StatelessWidget {
+  final ExperimentData experiment;
   final MaterialColor infoColor;
-  const ExamDetailCard({
+  const ExperimentDetailCard({
     super.key,
-    required this.subject,
+    required this.experiment,
     required this.infoColor,
   });
 
@@ -35,7 +35,7 @@ class ExamDetailCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${subject.subject}${subject.type}",
+                experiment.name,
                 style: TextStyle(
                   color: infoColor.shade900,
                   fontSize: 18,
@@ -46,19 +46,18 @@ class ExamDetailCard extends StatelessWidget {
               [
                 CustomListTile(
                   icon: Icons.room,
-                  str: subject.place,
+                  str: experiment.classroom,
                   infoColor: infoColor,
                 ).flexible(),
-                if (subject.seat != null)
-                  CustomListTile(
-                    icon: Icons.chair,
-                    str: subject.seat.toString(),
-                    infoColor: infoColor,
-                  ).flexible(),
+                CustomListTile(
+                  icon: Icons.person,
+                  str: experiment.teacher,
+                  infoColor: infoColor,
+                ).flexible(),
               ].toRow(),
               CustomListTile(
                 icon: Icons.access_time_filled_outlined,
-                str: subject.time,
+                str: experiment.timeStr,
                 infoColor: infoColor,
               ),
             ],

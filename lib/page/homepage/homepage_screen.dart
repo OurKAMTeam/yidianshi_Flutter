@@ -36,7 +36,7 @@ class HomePageScreen extends GetView<HomePageController> {
                 horizontal: 20,
                 vertical: 10,
               ),
-              title: GetBuilder<ClassTableController>(
+              title: GetBuilder<ClassTableControllerMin>(
                 builder: (c) => Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,

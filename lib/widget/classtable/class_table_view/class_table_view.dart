@@ -6,15 +6,16 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import 'package:yidianshi/model/xidian_ids/classtable.dart';
-import 'package:yidianshi/page/homepage/classtable/class_table_view/class_card.dart';
-import 'package:yidianshi/page/homepage/classtable/class_table_view/class_organized_data.dart';
-import 'package:yidianshi/page/homepage/classtable/class_table_view/classtable_date_row.dart';
-import 'package:yidianshi/page/homepage/classtable/classtable_constant.dart';
-import 'package:yidianshi/page/homepage/classtable/classtable_state.dart';
+import 'package:yidianshi/widget/classtable/class_table_view/class_card.dart';
+import 'package:yidianshi/widget/classtable/class_table_view/class_organized_data.dart';
+import 'package:yidianshi/widget/classtable/class_table_view/classtable_date_row.dart';
+import 'package:yidianshi/widget/classtable/classtable_constant.dart';
+//import 'package:yidianshi/page/homepage/classtable/temp_old_page/classtable_state.dart';
 import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
+import 'package:get/get.dart';
+import 'package:yidianshi/page/homepage/classtable/classtable_controller.dart';
 
-/// THe classtable view, the way the the classtable sheet rendered.
 class ClassTableView extends StatefulWidget {
   final int index;
   final BoxConstraints constraint;
@@ -39,7 +40,7 @@ class ClassTableView extends StatefulWidget {
 /// Total 61 parts, 49 as phone divider.
 ///
 class _ClassTableViewState extends State<ClassTableView> {
-  late ClassTableWidgetState classTableState;
+  final ClassTableController controller = Get.find<ClassTableController>();
   late BoxConstraints size;
 
   /// The height of the class card.
@@ -56,7 +57,7 @@ class _ClassTableViewState extends State<ClassTableView> {
       List<Widget> thisRow = [];
       for (var index = 1; index <= 7; ++index) {
         List<ClassOrgainzedData> arrangedEvents =
-            classTableState.getArrangement(
+            controller.getArrangement(
           weekIndex: widget.index,
           dayIndex: index,
         );
@@ -167,19 +168,19 @@ class _ClassTableViewState extends State<ClassTableView> {
     }
   }
 
-  void updateSize() => size = ClassTableState.of(context)!.constraints;
+  void updateSize() {
+    size = widget.constraint;
+    Get.find<ClassTableController>().constraints = widget.constraint;
+  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    classTableState = ClassTableState.of(context)!.controllers;
-    classTableState.addListener(_reload);
     updateSize();
   }
 
   @override
   void dispose() {
-    classTableState.removeListener(_reload);
     super.dispose();
   }
 
@@ -194,9 +195,7 @@ class _ClassTableViewState extends State<ClassTableView> {
     return [
       /// The main class table.
       ClassTableDateRow(
-        firstDay: classTableState.startDay
-            .add(Duration(days: 7 * classTableState.offset))
-            .add(Duration(days: 7 * widget.index)),
+        constraints: widget.constraint,
       ),
 
       /// The rest of the table.

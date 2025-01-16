@@ -55,7 +55,8 @@ class NotArrangedClassList extends StatelessWidget {
                 ),
               ),
             ),
-          ).constrained(maxWidth: 600);
-        }).center());
+          ).constrained(maxWidth: 600).center();
+        }),
+    );
   }
 }

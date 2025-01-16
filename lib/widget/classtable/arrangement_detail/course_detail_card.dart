@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/model/xidian_ids/classtable.dart';
-import 'package:yidianshi/page/homepage/classtable/classtable_constant.dart';
+import 'package:yidianshi/widget/classtable/classtable_constant.dart';
 
 /// A dialog/card shows the class detail / time arrangement.
 class ClassDetailCard extends StatelessWidget {

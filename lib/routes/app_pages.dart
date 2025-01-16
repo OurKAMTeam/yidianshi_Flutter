@@ -17,6 +17,10 @@ import 'package:yidianshi/page/homepage/sport/sport_binding.dart';
 import 'package:yidianshi/page/homepage/sport/sport_window.dart';
 import 'package:yidianshi/page/homepage/library/library_window.dart';
 import 'package:yidianshi/page/homepage/library/library_binding.dart';
+import 'package:yidianshi/page/homepage/classtable/classtable_binding.dart';
+import 'package:yidianshi/page/homepage/classtable/classtable_screen.dart';
+import 'package:yidianshi/page/homepage/classtable/add_page/add_class_screen.dart';
+import 'package:yidianshi/page/homepage/classtable/add_page/add_class_binding.dart';
 
 part 'app_routes.dart';
 
@@ -63,6 +67,18 @@ class AppPages {
           name: Routes.LIBRARY,
           page: () => const LibraryWindow(),
           binding: LibraryBinding(),
+        ),
+        GetPage(
+          name: Routes.CLASSTABLE,
+          page: () => const ClassTableScreen(),
+          binding: ClassTableBinding(),
+          children: [
+            GetPage(
+              name: Routes.ADD_CLASS,
+              page: () => const AddClassScreen(),
+              binding: AddClassBinding(),
+            ),
+          ],
         ),
       ]),
     GetPage(

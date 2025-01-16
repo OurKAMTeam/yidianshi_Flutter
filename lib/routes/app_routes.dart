@@ -10,4 +10,6 @@ abstract class Routes {
   static const EXPERIMENT = '/experiment';
   static const SPORT = '/sport';
   static const LIBRARY = '/library';
+  static const CLASSTABLE = '/classtable';
+  static const ADD_CLASS = '/classtable/add';
 }

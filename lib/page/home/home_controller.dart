@@ -143,7 +143,7 @@ class HomeController extends GetxController with WidgetsBindingObserver {
   }
 
   Future<void> _processPartnerFile(SharedMediaFile file) async {
-    final c = Get.find<ClassTableController>();
+    final c = Get.find<ClassTableControllerMin>();
     if (c.state != ClassTableState.fetched) {
       showToast(
         context: Get.context!,

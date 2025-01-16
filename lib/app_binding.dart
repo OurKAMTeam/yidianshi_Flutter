@@ -12,7 +12,7 @@ class AppBinding extends Bindings {
   void dependencies() async {
     // Get.put(ApiProvider(), permanent: true);
     // Get.put(ApiRepository(apiProvider: Get.find()), permanent: true);
-    Get.put(ClassTableController());
+    Get.put(ClassTableControllerMin());
     Get.put(ExamController());
     Get.put(ExperimentController());
     Get.lazyPut<HomeController>(() => HomeController());

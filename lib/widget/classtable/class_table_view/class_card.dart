@@ -7,12 +7,15 @@ import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/model/xidian_ids/classtable.dart';
 import 'package:yidianshi/model/xidian_ids/exam.dart';
 import 'package:yidianshi/model/xidian_ids/experiment.dart';
-import 'package:yidianshi/page/homepage/classtable/class_add/class_add_window.dart';
-import 'package:yidianshi/page/homepage/classtable/class_table_view/class_organized_data.dart';
-import 'package:yidianshi/page/homepage/classtable/arrangement_detail/arrangement_detail.dart';
-import 'package:yidianshi/page/homepage/classtable/classtable_state.dart';
+//import 'package:yidianshi/page/homepage/classtable/add_page/class_add_window.dart';
+import 'package:yidianshi/widget/classtable/class_table_view/class_organized_data.dart';
+import 'package:yidianshi/widget/classtable/arrangement_detail/arrangement_detail.dart';
+//import 'package:yidianshi/page/homepage/classtable/temp_old_page/classtable_state.dart';
 import 'package:yidianshi/widget/public_widget_all/both_side_sheet.dart';
 import 'package:yidianshi/widget/public_widget_all/public_widget.dart';
+import 'package:get/get.dart';
+import 'package:yidianshi/page/homepage/classtable/classtable_controller.dart';
+import 'package:yidianshi/routes/routes.dart';
 
 /// The card in [classSubRow], metioned in [ClassTableView].
 class ClassCard extends StatelessWidget {
@@ -29,8 +32,7 @@ class ClassCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ClassTableWidgetState classTableState =
-        ClassTableState.of(context)!.controllers;
+    final classTableController = Get.find<ClassTableController>();
 
     /// This is the result of the class info card.
     return Padding(
@@ -55,8 +57,6 @@ class ClassCard extends StatelessWidget {
                       overlayColor: Colors.transparent,
                     ),
                     onPressed: () async {
-                      var controller = ClassTableState.of(context)!.controllers;
-
                       /// The way to show the class info of the period.
                       /// The last one indicate whether to delete this stuff.
                       (ClassDetail, TimeArrangement, bool)? toUse =
@@ -72,40 +72,37 @@ class ClassCard extends StatelessWidget {
                               return data.elementAt(index);
                             } else {
                               return (
-                                classTableState.getClassDetail(
-                                  classTableState.timeArrangement
+                                classTableController.getClassDetail(
+                                  classTableController.timeArrangement
                                       .indexOf(data.elementAt(index)),
                                 ),
                                 data.elementAt(index),
                               );
                             }
                           }),
-                          currentWeek: classTableState.currentWeek,
+                          currentWeek: classTableController.currentWeek,
                         ),
                         context: context,
                       );
                       if (context.mounted && toUse != null) {
                         if (toUse.$3) {
-                          await ClassTableState.of(context)!
-                              .controllers
+                          await classTableController
                               .deleteUserDefinedClass(toUse.$2);
                         } else {
-                          await Navigator.of(context)
-                              .push(
-                                MaterialPageRoute(
-                                  builder: (context) => ClassAddWindow(
-                                    toChange: (toUse.$1, toUse.$2),
-                                    semesterLength: controller.semesterLength,
-                                  ),
-                                ),
-                              )
-                              .then(
-                                (value) => controller.editUserDefinedClass(
-                                  value.$1,
-                                  value.$2,
-                                  value.$3,
-                                ),
-                              );
+                          final result = await Get.toNamed<(ClassDetail, TimeArrangement, TimeArrangement)>(
+                            Routes.HOME + Routes.CLASSTABLE + Routes.ADD_CLASS,
+                            arguments: {
+                              'toChange': (toUse.$1, toUse.$2),
+                              'semesterLength': classTableController.semesterLength,
+                            },
+                          );
+                          if (result != null) {
+                            await classTableController.editUserDefinedClass(
+                              result.$2,  // oldTimeArrangement
+                              result.$1,  // classDetail
+                              result.$3,  // newTimeArrangement
+                            );
+                          }
                         }
                       }
                     },

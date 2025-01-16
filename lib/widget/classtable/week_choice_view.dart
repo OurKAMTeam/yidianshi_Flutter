@@ -4,9 +4,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:yidianshi/page/homepage/classtable/class_table_view/class_organized_data.dart';
-import 'package:yidianshi/page/homepage/classtable/classtable_constant.dart';
-import 'package:yidianshi/page/homepage/classtable/classtable_state.dart';
+import 'package:yidianshi/widget/classtable/class_table_view/class_organized_data.dart';
+import 'package:yidianshi/widget/classtable/classtable_constant.dart';
+import 'package:yidianshi/page/homepage/classtable/controller/classtable_state_controller.dart';
 
 /// This is the button of the toprow
 class WeekChoiceView extends StatefulWidget {
@@ -21,12 +21,12 @@ class WeekChoiceView extends StatefulWidget {
 }
 
 class _WeekChoiceViewState extends State<WeekChoiceView> {
-  late ClassTableWidgetState controller;
+  late ClassTableStateController controller;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    controller = ClassTableState.of(context)!.controllers;
+    controller = ClassTableStateController.of(context)!;
   }
 
   /// The dot of the overview, [isOccupied] is used to identify the opacity of the dot.

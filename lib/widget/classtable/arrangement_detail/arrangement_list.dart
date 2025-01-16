@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:yidianshi/model/xidian_ids/classtable.dart';
 import 'package:yidianshi/model/xidian_ids/exam.dart';
 import 'package:yidianshi/model/xidian_ids/experiment.dart';
-import 'package:yidianshi/page/homepage/classtable/arrangement_detail/course_detail_card.dart';
-import 'package:yidianshi/page/homepage/classtable/arrangement_detail/arrangement_detail_state.dart';
-import 'package:yidianshi/page/homepage/classtable/arrangement_detail/exam_detail_card.dart';
-import 'package:yidianshi/page/homepage/classtable/arrangement_detail/experiment_detail_card.dart';
+import 'package:yidianshi/widget/classtable/arrangement_detail/course_detail_card.dart';
+import 'package:yidianshi/widget/classtable/arrangement_detail/arrangement_detail_state.dart';
+import 'package:yidianshi/widget/classtable/arrangement_detail/exam_detail_card.dart';
+import 'package:yidianshi/widget/classtable/arrangement_detail/experiment_detail_card.dart';
 import 'package:yidianshi/shared/common/themes/color_seed.dart';
 
 /// A list of the class info in that period, in case of conflict class.

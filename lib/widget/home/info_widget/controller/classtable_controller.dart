@@ -22,7 +22,7 @@ enum ClassTableState {
   none,
 }
 
-class ClassTableController extends GetxController {
+class ClassTableControllerMin extends GetxController {
   // Classtable state
   String? error;
   ClassTableState state = ClassTableState.none;

@@ -7,13 +7,14 @@ import 'package:yidianshi/widget/public_widget_all/toast.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/widget/home/info_widget/controller/classtable_controller.dart';
-import 'package:yidianshi/page/homepage/classtable/classtable.dart';
+// import 'package:yidianshi/page/homepage/classtable/temp_old_page/classtable.dart';
+import 'package:yidianshi/routes/routes.dart';
 import 'package:yidianshi/widget/home/home_card_padding.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:timelines_plus/timelines_plus.dart';
 import 'package:yidianshi/model/home_arrangement.dart';
 import 'package:yidianshi/widget/home/refresh.dart';
-import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
+//import 'package:yidianshi/widget/public_widget_all/context_extension.dart';
 import 'package:yidianshi/shared/utils/preference.dart' as preference;
 
 class _ClassTableCardItemDescriptor {
@@ -173,16 +174,15 @@ class _ClassTableCardState extends State<ClassTableCard> {
         .withHomeCardStyle(context)
         .gestures(
       onTap: () {
-        final c = Get.find<ClassTableController>();
+        final c = Get.find<ClassTableControllerMin>();
         switch (c.state) {
           case ClassTableState.fetched:
-            context.pushReplacement(LayoutBuilder(
-              builder: (context, constraints) => ClassTableWindow(
-                parentContext: context,
-                currentWeek: c.getCurrentWeek(updateTime),
-                constraints: constraints,
-              ),
-            ));
+            Get.toNamed(
+              Routes.HOME + Routes.CLASSTABLE,
+              parameters: {
+                "currentWeek": c.getCurrentWeek(updateTime).toString(),
+              },
+            );
           case ClassTableState.error:
             showToast(
               context: context,
