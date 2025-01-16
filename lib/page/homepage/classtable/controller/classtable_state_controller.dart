@@ -9,9 +9,11 @@ class ClassTableStateController extends PartnerClassTableController
     with ExportClassTableController, ArrangementClassTableController {
   BoxConstraints constraints = const BoxConstraints();
   
-  ClassTableStateController({
-    required super.currentWeek,
-  });
+  final _currentWeek = 1.obs;
+  int get currentWeek => _currentWeek.value;
+  set currentWeek(int value) => _currentWeek.value = value;
+
+  ClassTableStateController({super.currentWeek = 1});
 
   static ClassTableStateController? of(BuildContext context) {
     return Get.find<ClassTableStateController>();

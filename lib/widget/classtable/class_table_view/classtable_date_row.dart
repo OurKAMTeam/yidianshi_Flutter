@@ -6,6 +6,7 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/widget/classtable/classtable_constant.dart';
 import 'package:get/get.dart';
+import 'package:yidianshi/page/homepage/classtable/classtable_controller.dart';
 import 'package:yidianshi/page/homepage/classtable/controller/classtable_state_controller.dart';
 
 /// The index row of the class table, shows the index of the day and the week.
@@ -63,7 +64,7 @@ class WeekInfomation extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isToday =
         (time.month == DateTime.now().month && time.day == DateTime.now().day);
-    BoxConstraints size = ClassTableStateController.of(context)!.constraints;
+    BoxConstraints size = Get.find<ClassTableController>().constraints;
     return SizedBox(
       width: (size.maxWidth - leftRow) / 7,
       child: Column(

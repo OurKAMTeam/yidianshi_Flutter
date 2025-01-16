@@ -128,7 +128,7 @@ class PartnerClassTableController extends BaseClassTableController {
   // Partner class data generation
   String ercStr(String name) => jsonEncode({
         "name": name,
-        "classtable": classTableController.classTableData,
+        "classtable": classTableControllermin.classTableData,
         "exam": examController.data.subject,
         "experiment": experimentController.data,
       });

@@ -6,6 +6,7 @@ import 'package:yidianshi/page/home/home_controller.dart';
 import 'package:yidianshi/page/post/post_controller.dart';
 import 'package:yidianshi/page/functions/functions_controller.dart';
 import 'package:yidianshi/page/homepage/homepage_controller.dart';
+import 'package:yidianshi/page/homepage/classtable/controller/classtable_state_controller.dart';
 
 class AppBinding extends Bindings {
   @override
@@ -15,6 +16,7 @@ class AppBinding extends Bindings {
     Get.put(ClassTableControllerMin());
     Get.put(ExamController());
     Get.put(ExperimentController());
+    Get.lazyPut<ClassTableStateController>(() => ClassTableStateController());
     Get.lazyPut<HomeController>(() => HomeController());
     Get.lazyPut<PostController>(() => PostController());
     Get.lazyPut<FunctionsController>(() => FunctionsController());

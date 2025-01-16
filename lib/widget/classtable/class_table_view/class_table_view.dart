@@ -41,15 +41,16 @@ class ClassTableView extends StatefulWidget {
 ///
 class _ClassTableViewState extends State<ClassTableView> {
   final ClassTableController controller = Get.find<ClassTableController>();
-  late BoxConstraints size;
 
   /// The height of the class card.
-  double blockheight(double count) =>
-      count *
-      (widget.constraint.minHeight - midRowHeight) /
-      (isPhone(context) ? 48 : 61);
+  double blockheight(double count) {
+    final availableHeight = widget.constraint.minHeight - midRowHeight;
+    if (availableHeight <= 0) return 0;  // Safety check for negative height
+    final divisor = isPhone(context) ? 48.0 : 61.0;
+    return (count * availableHeight / divisor).clamp(0.0, availableHeight);  // Clamp to prevent overflow
+  }
 
-  double get blockwidth => (size.maxWidth - leftRow) / 7;
+  double get blockwidth => (controller.constraints.maxWidth - leftRow) / 7;
 
   /// The class table are divided into 8 rows, the leftest row is the index row.
   List<Widget> classSubRow(bool isRest) {
@@ -169,8 +170,16 @@ class _ClassTableViewState extends State<ClassTableView> {
   }
 
   void updateSize() {
-    size = widget.constraint;
-    Get.find<ClassTableController>().constraints = widget.constraint;
+    controller.constraints = widget.constraint;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    controller.constraints = widget.constraint;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) setState(() {}); // Ensure proper layout after frame
+    });
   }
 
   @override
@@ -210,7 +219,7 @@ class _ClassTableViewState extends State<ClassTableView> {
           .toStack()
           .constrained(
             height: blockheight(61),
-            width: size.maxWidth,
+            width: controller.constraints.maxWidth,
           )
           .scrollable()
           .expanded(),

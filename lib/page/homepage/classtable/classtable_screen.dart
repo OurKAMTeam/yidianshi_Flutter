@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:styled_widget/styled_widget.dart';
 import 'package:yidianshi/page/homepage/classtable/classtable_controller.dart';
 import 'package:yidianshi/page/homepage/classtable/widgets/class_table_popup_menu.dart';
 import 'package:yidianshi/page/homepage/classtable/widgets/class_table_view_widget.dart';
@@ -94,6 +95,17 @@ class ClassTableScreen extends GetView<ClassTableController> {
 
   @override
   Widget build(BuildContext context) {
+    final decoration = BoxDecoration(
+      color: Theme.of(context).scaffoldBackgroundColor,
+      boxShadow: [
+        BoxShadow(
+          color: Theme.of(context).shadowColor.withOpacity(0.1),
+          blurRadius: 4,
+          offset: const Offset(0, 2),
+        ),
+      ],
+    );
+
     return Obx(() {
       if (controller.classDetail.isEmpty) {
         return Scaffold(
@@ -154,9 +166,10 @@ class ClassTableScreen extends GetView<ClassTableController> {
               ),
               child: const WeekSelector(),
             ),
-            const Expanded(
-              child: ClassTableViewWidget(),
-            ),
+            DecoratedBox(
+              decoration: decoration,
+              child: const ClassTableViewWidget(),
+            ).expanded(),
           ],
         ),
       );

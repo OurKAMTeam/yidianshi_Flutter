@@ -19,24 +19,35 @@ class ClassTableController extends ClassTableStateController {
   @override
   void onInit() {
     super.onInit();
-    chosenWeek = currentWeek;
+    
+    // 确保 chosenWeek 在有效范围内
+    final initialWeek = int.tryParse(Get.parameters['currentWeek'] ?? '') ?? 1;
+    chosenWeek = initialWeek.clamp(1, semesterLength);
+    
+    // 初始化页面控制器，注意页面索引从0开始
+    final initialPage = chosenWeek - 1;
     pageController = PageController(
-      initialPage: chosenWeek - 1,
+      initialPage: initialPage,
       keepPage: true,
     );
 
-    // Calculate viewport fraction for row controller
-    final double weekButtonWidth = 48.0; // Adjust this value as needed
-    final double weekButtonHorizontalPadding = 8.0; // Adjust this value as needed
-    final double viewportWidth = Get.width; // Using Get.width for screen width
+    // 计算周选择器的视口比例
+    final double weekButtonWidth = 48.0;
+    final double weekButtonHorizontalPadding = 8.0;
+    final double viewportWidth = Get.width;
 
     rowController = PageController(
-      initialPage: chosenWeek - 1,
+      initialPage: initialPage,
       viewportFraction: (weekButtonWidth + 2 * weekButtonHorizontalPadding) / viewportWidth,
       keepPage: true,
     );
 
-    ever(chosenWeek.obs, (_) => _switchPage());
+    // 监听周数变化
+    ever(chosenWeek.obs, (week) {
+      if (!isTopRowLocked.value) {
+        _switchPage();
+      }
+    });
   }
 
   @override
@@ -51,21 +62,28 @@ class ClassTableController extends ClassTableStateController {
   }
 
   void _switchPage() {
+    if (isTopRowLocked.value) return;  // 防止重复触发
+    
     isTopRowLocked.value = true;
-    Future.wait(
-      [
+    
+    // 使用 try-finally 确保锁一定会被释放
+    try {
+      Future.wait([
         rowController.animateToPage(
-          chosenWeek,
+          chosenWeek - 1,
           curve: Curves.easeInOut,
           duration: const Duration(milliseconds: 300),
         ),
         pageController.animateToPage(
-          chosenWeek,
+          chosenWeek - 1,
           curve: Curves.easeInOutCubic,
           duration: const Duration(milliseconds: 300),
         ),
-      ],
-    ).then((value) => isTopRowLocked.value = false);
+      ]).whenComplete(() => isTopRowLocked.value = false);  // 使用 whenComplete 确保一定会执行
+    } catch (e) {
+      isTopRowLocked.value = false;  // 发生错误时也要释放锁
+      rethrow;
+    }
   }
 
   Future<String?> importPartnerClassFile() async {

@@ -15,7 +15,7 @@ import 'package:yidianshi/shared/utils/preference.dart' as preference;
 /// Handles basic data access and week selection
 class BaseClassTableController extends GetxController {
   // Dependencies
-  final ClassTableControllerMin classTableController = Get.find();
+  final ClassTableControllerMin classTableControllermin = Get.find();
   final ExamController examController = Get.find();
   final ExperimentController experimentController = Get.find();
 
@@ -27,15 +27,15 @@ class BaseClassTableController extends GetxController {
   final _chosenWeek = 0.obs;
 
   // Getters for static data
-  int get semesterLength => classTableController.classTableData.semesterLength;
-  String get semesterCode => classTableController.classTableData.semesterCode;
-  DateTime get startDay => Jiffy.parse(classTableController.classTableData.termStartDay).dateTime;
+  int get semesterLength => classTableControllermin.classTableData.semesterLength;
+  String get semesterCode => classTableControllermin.classTableData.semesterCode;
+  DateTime get startDay => Jiffy.parse(classTableControllermin.classTableData.termStartDay).dateTime;
 
   // Getters for class data
-  List<ClassDetail> get classDetail => classTableController.classTableData.classDetail;
-  List<NotArrangementClassDetail> get notArranged => classTableController.classTableData.notArranged;
-  List<TimeArrangement> get timeArrangement => classTableController.classTableData.timeArrangement;
-  List<ClassChange> get classChange => classTableController.classTableData.classChanges;
+  List<ClassDetail> get classDetail => classTableControllermin.classTableData.classDetail;
+  List<NotArrangementClassDetail> get notArranged => classTableControllermin.classTableData.notArranged;
+  List<TimeArrangement> get timeArrangement => classTableControllermin.classTableData.timeArrangement;
+  List<ClassChange> get classChange => classTableControllermin.classTableData.classChanges;
   List<Subject> get subjects => examController.data.subject;
   List<ExperimentData> get experiments => experimentController.data;
 
@@ -52,7 +52,7 @@ class BaseClassTableController extends GetxController {
     ClassDetail classDetail,
     TimeArrangement timeArrangement,
   ) async {
-    await classTableController.addUserDefinedClass(
+    await classTableControllermin.addUserDefinedClass(
       classDetail,
       timeArrangement,
     );
@@ -64,7 +64,7 @@ class BaseClassTableController extends GetxController {
     ClassDetail classDetail,
     TimeArrangement timeArrangement,
   ) async {
-    await classTableController.editUserDefinedClass(
+    await classTableControllermin.editUserDefinedClass(
       oldTimeArrangment,
       classDetail,
       timeArrangement,
@@ -75,13 +75,13 @@ class BaseClassTableController extends GetxController {
   Future<void> deleteUserDefinedClass(
     TimeArrangement timeArrangement,
   ) async {
-    await classTableController.deleteUserDefinedClass(timeArrangement);
+    await classTableControllermin.deleteUserDefinedClass(timeArrangement);
     update();
   }
 
   // Helper methods
   ClassDetail getClassDetail(int index) =>
-      classTableController.classTableData.getClassDetail(timeArrangement[index]);
+      classTableControllermin.classTableData.getClassDetail(timeArrangement[index]);
 
   @override
   void onInit() {

@@ -27,27 +27,27 @@ class WeekSelector extends GetView<ClassTableController> {
               margin: const EdgeInsets.symmetric(
                 horizontal: weekButtonHorizontalPadding,
               ),
-              child: SizedBox(
-                width: weekButtonWidth,
-                child: Obx(() => Card(
-                  color: Get.theme.highlightColor.withOpacity(
-                    controller.chosenWeek == index ? 0.3 : 0.0,
-                  ),
-                  elevation: 0.0,
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(12.0),
-                    onTap: () {
-                      if (!controller.isTopRowLocked.value) {
-                        controller.chosenWeek = index;
-                      }
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(5),
-                      child: WeekChoiceView(index: index),
-                    ),
-                  ),
-                )),
+              constraints: const BoxConstraints(
+                minWidth: weekButtonWidth,
               ),
+              child: Obx(() => Card(
+                color: Get.theme.highlightColor.withOpacity(
+                  controller.chosenWeek == index ? 0.3 : 0.0,
+                ),
+                elevation: 0.0,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(12.0),
+                  onTap: () {
+                    if (!controller.isTopRowLocked.value) {
+                      controller.chosenWeek = index;
+                    }
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
+                    child: WeekChoiceView(index: index),
+                  ),
+                ),
+              )),
             );
           },
         ),
