@@ -17,6 +17,8 @@ import 'package:yidianshi/page/homepage/sport/sport_binding.dart';
 import 'package:yidianshi/page/homepage/sport/sport_window.dart';
 import 'package:yidianshi/page/homepage/library/library_window.dart';
 import 'package:yidianshi/page/homepage/library/library_binding.dart';
+import 'package:yidianshi/page/post/details/detail_binding.dart';
+import 'package:yidianshi/page/post/details/detail_screen.dart';
 
 part 'app_routes.dart';
 
@@ -69,6 +71,11 @@ class AppPages {
       name: Routes.LOGIN,
       page: () => const LoginWindow(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: Routes.POST_DETAIL,
+      page: () => const DetailScreen(),
+      binding: DetailBinding(),
     ),
   ];
 

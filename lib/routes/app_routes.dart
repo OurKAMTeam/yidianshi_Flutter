@@ -10,4 +10,5 @@ abstract class Routes {
   static const EXPERIMENT = '/experiment';
   static const SPORT = '/sport';
   static const LIBRARY = '/library';
+  static const POST_DETAIL = '/post/detail';
 }
